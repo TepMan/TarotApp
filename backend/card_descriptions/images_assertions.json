@@ -1,0 +1,470 @@
+[
+  {
+    "card_index": 1,
+    "german_name": "Der Narr",
+    "image_file": "00_Fool.jpg",
+    "image_path": "static/card_images/720px/00_Fool.jpg"
+  },
+  {
+    "card_index": 2,
+    "german_name": "Der Magier",
+    "image_file": "01_Magician.jpg",
+    "image_path": "static/card_images/720px/01_Magician.jpg"
+  },
+  {
+    "card_index": 3,
+    "german_name": "Die Hohepriesterin",
+    "image_file": "02_High_Priestess.jpg",
+    "image_path": "static/card_images/720px/02_High_Priestess.jpg"
+  },
+  {
+    "card_index": 4,
+    "german_name": "Die Herrscherin",
+    "image_file": "03_Empress.jpg",
+    "image_path": "static/card_images/720px/03_Empress.jpg"
+  },
+  {
+    "card_index": 5,
+    "german_name": "Der Herrscher",
+    "image_file": "04_Emperor.jpg",
+    "image_path": "static/card_images/720px/04_Emperor.jpg"
+  },
+  {
+    "card_index": 6,
+    "german_name": "Der Hierophant",
+    "image_file": "05_Hierophant.jpg",
+    "image_path": "static/card_images/720px/05_Hierophant.jpg"
+  },
+  {
+    "card_index": 7,
+    "german_name": "Die Liebenden",
+    "image_file": "06_Lovers.jpg",
+    "image_path": "static/card_images/720px/06_Lovers.jpg"
+  },
+  {
+    "card_index": 8,
+    "german_name": "Der Wagen",
+    "image_file": "07_Chariot.jpg",
+    "image_path": "static/card_images/720px/07_Chariot.jpg"
+  },
+  {
+    "card_index": 9,
+    "german_name": "Kraft",
+    "image_file": "08_Strength.jpg",
+    "image_path": "static/card_images/720px/08_Strength.jpg"
+  },
+  {
+    "card_index": 10,
+    "german_name": "Der Eremit",
+    "image_file": "09_Hermit.jpg",
+    "image_path": "static/card_images/720px/09_Hermit.jpg"
+  },
+  {
+    "card_index": 11,
+    "german_name": "Das Rad des Schicksals",
+    "image_file": "10_Wheel_of_Fortune.jpg",
+    "image_path": "static/card_images/720px/10_Wheel_of_Fortune.jpg"
+  },
+  {
+    "card_index": 12,
+    "german_name": "Gerechtigkeit",
+    "image_file": "11_Justice.jpg",
+    "image_path": "static/card_images/720px/11_Justice.jpg"
+  },
+  {
+    "card_index": 13,
+    "german_name": "Der Gehängte",
+    "image_file": "12_Hanged_Man.jpg",
+    "image_path": "static/card_images/720px/12_Hanged_Man.jpg"
+  },
+  {
+    "card_index": 14,
+    "german_name": "Tod",
+    "image_file": "13_Death.jpg",
+    "image_path": "static/card_images/720px/13_Death.jpg"
+  },
+  {
+    "card_index": 15,
+    "german_name": "Mäßigkeit",
+    "image_file": "14_Temperance.jpg",
+    "image_path": "static/card_images/720px/14_Temperance.jpg"
+  },
+  {
+    "card_index": 16,
+    "german_name": "Der Teufel",
+    "image_file": "15_Devil.jpg",
+    "image_path": "static/card_images/720px/15_Devil.jpg"
+  },
+  {
+    "card_index": 17,
+    "german_name": "Der Turm",
+    "image_file": "16_Tower.jpg",
+    "image_path": "static/card_images/720px/16_Tower.jpg"
+  },
+  {
+    "card_index": 18,
+    "german_name": "Der Stern",
+    "image_file": "17_Star.jpg",
+    "image_path": "static/card_images/720px/17_Star.jpg"
+  },
+  {
+    "card_index": 19,
+    "german_name": "Der Mond",
+    "image_file": "18_Moon.jpg",
+    "image_path": "static/card_images/720px/18_Moon.jpg"
+  },
+  {
+    "card_index": 20,
+    "german_name": "Die Sonne",
+    "image_file": "19_Sun.jpg",
+    "image_path": "static/card_images/720px/19_Sun.jpg"
+  },
+  {
+    "card_index": 21,
+    "german_name": "Das Gericht",
+    "image_file": "20_Judgement.jpg",
+    "image_path": "static/card_images/720px/20_Judgement.jpg"
+  },
+  {
+    "card_index": 22,
+    "german_name": "Die Welt",
+    "image_file": "21_World.jpg",
+    "image_path": "static/card_images/720px/21_World.jpg"
+  },
+  {
+    "card_index": 23,
+    "german_name": "Ass der Kelche",
+    "image_file": "Cover.jpg",
+    "image_path": "static/card_images/720px/Cover.jpg"
+  },
+  {
+    "card_index": 24,
+    "german_name": "Zwei der Kelche",
+    "image_file": "Cover_Rare.jpg",
+    "image_path": "static/card_images/720px/Cover_Rare.jpg"
+  },
+  {
+    "card_index": 25,
+    "german_name": "Drei der Kelche",
+    "image_file": "Cups01.jpg",
+    "image_path": "static/card_images/720px/Cups01.jpg"
+  },
+  {
+    "card_index": 26,
+    "german_name": "Vier der Kelche",
+    "image_file": "Cups02.jpg",
+    "image_path": "static/card_images/720px/Cups02.jpg"
+  },
+  {
+    "card_index": 27,
+    "german_name": "Fünf der Kelche",
+    "image_file": "Cups03.jpg",
+    "image_path": "static/card_images/720px/Cups03.jpg"
+  },
+  {
+    "card_index": 28,
+    "german_name": "Sechs der Kelche",
+    "image_file": "Cups04.jpg",
+    "image_path": "static/card_images/720px/Cups04.jpg"
+  },
+  {
+    "card_index": 29,
+    "german_name": "Sieben der Kelche",
+    "image_file": "Cups05.jpg",
+    "image_path": "static/card_images/720px/Cups05.jpg"
+  },
+  {
+    "card_index": 30,
+    "german_name": "Acht der Kelche",
+    "image_file": "Cups06.jpg",
+    "image_path": "static/card_images/720px/Cups06.jpg"
+  },
+  {
+    "card_index": 31,
+    "german_name": "Neun der Kelche",
+    "image_file": "Cups07.jpg",
+    "image_path": "static/card_images/720px/Cups07.jpg"
+  },
+  {
+    "card_index": 32,
+    "german_name": "Zehn der Kelche",
+    "image_file": "Cups08.jpg",
+    "image_path": "static/card_images/720px/Cups08.jpg"
+  },
+  {
+    "card_index": 33,
+    "german_name": "Bube der Kelche",
+    "image_file": "Cups09.jpg",
+    "image_path": "static/card_images/720px/Cups09.jpg"
+  },
+  {
+    "card_index": 34,
+    "german_name": "Ritter der Kelche",
+    "image_file": "Cups10.jpg",
+    "image_path": "static/card_images/720px/Cups10.jpg"
+  },
+  {
+    "card_index": 35,
+    "german_name": "Königin der Kelche",
+    "image_file": "Cups11.jpg",
+    "image_path": "static/card_images/720px/Cups11.jpg"
+  },
+  {
+    "card_index": 36,
+    "german_name": "König der Kelche",
+    "image_file": "Cups12.jpg",
+    "image_path": "static/card_images/720px/Cups12.jpg"
+  },
+  {
+    "card_index": 37,
+    "german_name": "Ass der Stäbe",
+    "image_file": "Cups13.jpg",
+    "image_path": "static/card_images/720px/Cups13.jpg"
+  },
+  {
+    "card_index": 38,
+    "german_name": "Zwei der Stäbe",
+    "image_file": "Cups14.jpg",
+    "image_path": "static/card_images/720px/Cups14.jpg"
+  },
+  {
+    "card_index": 39,
+    "german_name": "Drei der Stäbe",
+    "image_file": "Pents01.jpg",
+    "image_path": "static/card_images/720px/Pents01.jpg"
+  },
+  {
+    "card_index": 40,
+    "german_name": "Vier der Stäbe",
+    "image_file": "Pents02.jpg",
+    "image_path": "static/card_images/720px/Pents02.jpg"
+  },
+  {
+    "card_index": 41,
+    "german_name": "Fünf der Stäbe",
+    "image_file": "Pents03.jpg",
+    "image_path": "static/card_images/720px/Pents03.jpg"
+  },
+  {
+    "card_index": 42,
+    "german_name": "Sechs der Stäbe",
+    "image_file": "Pents04.jpg",
+    "image_path": "static/card_images/720px/Pents04.jpg"
+  },
+  {
+    "card_index": 43,
+    "german_name": "Sieben der Stäbe",
+    "image_file": "Pents05.jpg",
+    "image_path": "static/card_images/720px/Pents05.jpg"
+  },
+  {
+    "card_index": 44,
+    "german_name": "Acht der Stäbe",
+    "image_file": "Pents06.jpg",
+    "image_path": "static/card_images/720px/Pents06.jpg"
+  },
+  {
+    "card_index": 45,
+    "german_name": "Neun der Stäbe",
+    "image_file": "Pents07.jpg",
+    "image_path": "static/card_images/720px/Pents07.jpg"
+  },
+  {
+    "card_index": 46,
+    "german_name": "Zehn der Stäbe",
+    "image_file": "Pents08.jpg",
+    "image_path": "static/card_images/720px/Pents08.jpg"
+  },
+  {
+    "card_index": 47,
+    "german_name": "Bube der Stäbe",
+    "image_file": "Pents09.jpg",
+    "image_path": "static/card_images/720px/Pents09.jpg"
+  },
+  {
+    "card_index": 48,
+    "german_name": "Ritter der Stäbe",
+    "image_file": "Pents10.jpg",
+    "image_path": "static/card_images/720px/Pents10.jpg"
+  },
+  {
+    "card_index": 49,
+    "german_name": "Königin der Stäbe",
+    "image_file": "Pents11.jpg",
+    "image_path": "static/card_images/720px/Pents11.jpg"
+  },
+  {
+    "card_index": 50,
+    "german_name": "König der Stäbe",
+    "image_file": "Pents12.jpg",
+    "image_path": "static/card_images/720px/Pents12.jpg"
+  },
+  {
+    "card_index": 51,
+    "german_name": "Ass der Schwerter",
+    "image_file": "Pents13.jpg",
+    "image_path": "static/card_images/720px/Pents13.jpg"
+  },
+  {
+    "card_index": 52,
+    "german_name": "Zwei der Schwerter",
+    "image_file": "Pents14.jpg",
+    "image_path": "static/card_images/720px/Pents14.jpg"
+  },
+  {
+    "card_index": 53,
+    "german_name": "Drei der Schwerter",
+    "image_file": "Swords01.jpg",
+    "image_path": "static/card_images/720px/Swords01.jpg"
+  },
+  {
+    "card_index": 54,
+    "german_name": "Vier der Schwerter",
+    "image_file": "Swords02.jpg",
+    "image_path": "static/card_images/720px/Swords02.jpg"
+  },
+  {
+    "card_index": 55,
+    "german_name": "Fünf der Schwerter",
+    "image_file": "Swords03.jpg",
+    "image_path": "static/card_images/720px/Swords03.jpg"
+  },
+  {
+    "card_index": 56,
+    "german_name": "Sechs der Schwerter",
+    "image_file": "Swords04.jpg",
+    "image_path": "static/card_images/720px/Swords04.jpg"
+  },
+  {
+    "card_index": 57,
+    "german_name": "Sieben der Schwerter",
+    "image_file": "Swords05.jpg",
+    "image_path": "static/card_images/720px/Swords05.jpg"
+  },
+  {
+    "card_index": 58,
+    "german_name": "Acht der Schwerter",
+    "image_file": "Swords06.jpg",
+    "image_path": "static/card_images/720px/Swords06.jpg"
+  },
+  {
+    "card_index": 59,
+    "german_name": "Neun der Schwerter",
+    "image_file": "Swords07.jpg",
+    "image_path": "static/card_images/720px/Swords07.jpg"
+  },
+  {
+    "card_index": 60,
+    "german_name": "Zehn der Schwerter",
+    "image_file": "Swords08.jpg",
+    "image_path": "static/card_images/720px/Swords08.jpg"
+  },
+  {
+    "card_index": 61,
+    "german_name": "Bube der Schwerter",
+    "image_file": "Swords09.jpg",
+    "image_path": "static/card_images/720px/Swords09.jpg"
+  },
+  {
+    "card_index": 62,
+    "german_name": "Ritter der Schwerter",
+    "image_file": "Swords10.jpg",
+    "image_path": "static/card_images/720px/Swords10.jpg"
+  },
+  {
+    "card_index": 63,
+    "german_name": "Königin der Schwerter",
+    "image_file": "Swords11.jpg",
+    "image_path": "static/card_images/720px/Swords11.jpg"
+  },
+  {
+    "card_index": 64,
+    "german_name": "König der Schwerter",
+    "image_file": "Swords12.jpg",
+    "image_path": "static/card_images/720px/Swords12.jpg"
+  },
+  {
+    "card_index": 65,
+    "german_name": "Ass der Münzen",
+    "image_file": "Swords13.jpg",
+    "image_path": "static/card_images/720px/Swords13.jpg"
+  },
+  {
+    "card_index": 66,
+    "german_name": "Zwei der Münzen",
+    "image_file": "Swords14.jpg",
+    "image_path": "static/card_images/720px/Swords14.jpg"
+  },
+  {
+    "card_index": 67,
+    "german_name": "Drei der Münzen",
+    "image_file": "Wands01.jpg",
+    "image_path": "static/card_images/720px/Wands01.jpg"
+  },
+  {
+    "card_index": 68,
+    "german_name": "Vier der Münzen",
+    "image_file": "Wands02.jpg",
+    "image_path": "static/card_images/720px/Wands02.jpg"
+  },
+  {
+    "card_index": 69,
+    "german_name": "Fünf der Münzen",
+    "image_file": "Wands03.jpg",
+    "image_path": "static/card_images/720px/Wands03.jpg"
+  },
+  {
+    "card_index": 70,
+    "german_name": "Sechs der Münzen",
+    "image_file": "Wands04.jpg",
+    "image_path": "static/card_images/720px/Wands04.jpg"
+  },
+  {
+    "card_index": 71,
+    "german_name": "Sieben der Münzen",
+    "image_file": "Wands05.jpg",
+    "image_path": "static/card_images/720px/Wands05.jpg"
+  },
+  {
+    "card_index": 72,
+    "german_name": "Acht der Münzen",
+    "image_file": "Wands06.jpg",
+    "image_path": "static/card_images/720px/Wands06.jpg"
+  },
+  {
+    "card_index": 73,
+    "german_name": "Neun der Münzen",
+    "image_file": "Wands07.jpg",
+    "image_path": "static/card_images/720px/Wands07.jpg"
+  },
+  {
+    "card_index": 74,
+    "german_name": "Zehn der Münzen",
+    "image_file": "Wands08.jpg",
+    "image_path": "static/card_images/720px/Wands08.jpg"
+  },
+  {
+    "card_index": 75,
+    "german_name": "Bube der Münzen",
+    "image_file": "Wands09.jpg",
+    "image_path": "static/card_images/720px/Wands09.jpg"
+  },
+  {
+    "card_index": 76,
+    "german_name": "Ritter der Münzen",
+    "image_file": "Wands10.jpg",
+    "image_path": "static/card_images/720px/Wands10.jpg"
+  },
+  {
+    "card_index": 77,
+    "german_name": "Königin der Münzen",
+    "image_file": "Wands11.jpg",
+    "image_path": "static/card_images/720px/Wands11.jpg"
+  },
+  {
+    "card_index": 78,
+    "german_name": "König der Münzen",
+    "image_file": "Wands12.jpg",
+    "image_path": "static/card_images/720px/Wands12.jpg"
+  }
+]

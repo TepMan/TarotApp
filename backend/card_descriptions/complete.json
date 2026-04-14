@@ -1,0 +1,1172 @@
+[
+  {
+    "name": "Der Narr",
+    "suit": "Große Arkana",
+    "number": "0",
+    "kernbotschaft": "Neubeginn, Offenheit und mutiges Ausprobieren.",
+    "psychologisch_aufrecht": "Unvoreingenommene Neugier, Risikobereitschaft und die Fähigkeit, ohne Vorurteile zu handeln.",
+    "psychologisch_umgekehrt": "Impulsivität, Naivität oder fehlende Vorbereitung.",
+    "anwendungsfelder": {
+      "emotionen": "Leichtigkeit, aber auch Unsicherheit.",
+      "beziehungen": "Offenheit, spontane Begegnungen.",
+      "beruf": "Start neuer Projekte, Lernphasen.",
+      "entwicklung": "Mut, alte Muster zu verlassen."
+    },
+    "archetyp": "Der Suchende"
+  },
+  {
+    "name": "Der Magier",
+    "suit": "Große Arkana",
+    "number": "I",
+    "kernbotschaft": "Bewusste Gestaltung durch Fokus und Kompetenz.",
+    "psychologisch_aufrecht": "Selbstwirksamkeit, Klarheit und die Fähigkeit, Ressourcen gezielt einzusetzen.",
+    "psychologisch_umgekehrt": "Zweifel an den eigenen Fähigkeiten oder Manipulation.",
+    "anwendungsfelder": {
+      "emotionen": "Klarheit, Ausdruckskraft.",
+      "beziehungen": "Ehrliche Kommunikation.",
+      "beruf": "Umsetzungskraft, Präsentationsstärke.",
+      "entwicklung": "Fokus auf Fähigkeiten."
+    },
+    "archetyp": "Der Gestalter"
+  },
+  {
+    "name": "Die Hohepriesterin",
+    "suit": "Große Arkana",
+    "number": "II",
+    "kernbotschaft": "Zugang zu innerem Wissen durch Ruhe und Intuition.",
+    "psychologisch_aufrecht": "Innere Klarheit, Sensibilität und Wahrnehmung unterschwelliger Dynamiken.",
+    "psychologisch_umgekehrt": "Überdenken, Selbstzweifel oder Informationsüberflutung.",
+    "anwendungsfelder": {
+      "emotionen": "Sensibilität, unterschwellige Spannungen.",
+      "beziehungen": "Intuition erkennt Bedürfnisse.",
+      "beruf": "Analyse, Beobachtung.",
+      "entwicklung": "Innere Signale ernst nehmen."
+    },
+    "archetyp": "Die innere Stimme"
+  },
+  {
+    "name": "Die Herrscherin",
+    "suit": "Große Arkana",
+    "number": "III",
+    "kernbotschaft": "Wachstum durch Fürsorge, Kreativität und Selbstannahme.",
+    "psychologisch_aufrecht": "Emotionale Fülle, Kreativität und gesunde Grenzen.",
+    "psychologisch_umgekehrt": "Vernachlässigung eigener Bedürfnisse oder kreative Blockaden.",
+    "anwendungsfelder": {
+      "emotionen": "Bedürfnis nach Wärme.",
+      "beziehungen": "Empathie, aber Gefahr von Überfürsorge.",
+      "beruf": "Kreative Projekte.",
+      "entwicklung": "Selbstwert und Körperbewusstsein."
+    },
+    "archetyp": "Die Nährende"
+  },
+  {
+    "name": "Der Herrscher",
+    "suit": "Große Arkana",
+    "number": "IV",
+    "kernbotschaft": "Struktur, Verantwortung und klare Entscheidungen.",
+    "psychologisch_aufrecht": "Stabilität, Führung und rationale Ordnung.",
+    "psychologisch_umgekehrt": "Starrheit, Kontrollzwang oder Autoritätskonflikte.",
+    "anwendungsfelder": {
+      "emotionen": "Bedürfnis nach Kontrolle.",
+      "beziehungen": "Klare Rollen.",
+      "beruf": "Organisation, Führung.",
+      "entwicklung": "Selbstdisziplin."
+    },
+    "archetyp": "Der Strategische"
+  },
+  {
+    "name": "Der Hierophant",
+    "suit": "Große Arkana",
+    "number": "V",
+    "kernbotschaft": "Orientierung durch Werte und innere Leitlinien.",
+    "psychologisch_aufrecht": "Sinnsuche, Stabilität und Lernen aus Erfahrung.",
+    "psychologisch_umgekehrt": "Dogmatismus oder Ablehnung von Regeln.",
+    "anwendungsfelder": {
+      "emotionen": "Bedürfnis nach Sicherheit.",
+      "beziehungen": "Gemeinsame Werte.",
+      "beruf": "Mentoring, Ausbildung.",
+      "entwicklung": "Klärung eigener Prinzipien."
+    },
+    "archetyp": "Der Lehrer"
+  },
+  {
+    "name": "Die Liebenden",
+    "suit": "Große Arkana",
+    "number": "VI",
+    "kernbotschaft": "Verbindung und Entscheidung aus innerer Stimmigkeit.",
+    "psychologisch_aufrecht": "Harmonie, Bindung und Integration von Gegensätzen.",
+    "psychologisch_umgekehrt": "Ambivalenz oder Abhängigkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Nähe, Unsicherheit.",
+      "beziehungen": "Partnerschaft, Wahl.",
+      "beruf": "Teamarbeit.",
+      "entwicklung": "Wertebasierte Entscheidungen."
+    },
+    "archetyp": "Die Verbindung"
+  },
+  {
+    "name": "Der Wagen",
+    "suit": "Große Arkana",
+    "number": "VII",
+    "kernbotschaft": "Gezielte Willenskraft und Fortschritt.",
+    "psychologisch_aufrecht": "Selbstwirksamkeit, Fokus und Integration widersprüchlicher Impulse.",
+    "psychologisch_umgekehrt": "Kontrollverlust, Überforderung oder impulsives Handeln.",
+    "anwendungsfelder": {
+      "emotionen": "Schwankungen zwischen Antrieb und Erschöpfung.",
+      "beziehungen": "Dominanz oder Klarheit.",
+      "beruf": "Initiative, Führung.",
+      "entwicklung": "Balance von Tempo und Kraft."
+    },
+    "archetyp": "Der Wille"
+  },
+  {
+    "name": "Kraft",
+    "suit": "Große Arkana",
+    "number": "VIII",
+    "kernbotschaft": "Innere Stärke durch Selbstregulation.",
+    "psychologisch_aufrecht": "Mut, Geduld und bewusste Emotionssteuerung.",
+    "psychologisch_umgekehrt": "Impulsivität oder emotionale Überforderung.",
+    "anwendungsfelder": {
+      "emotionen": "Stabilität.",
+      "beziehungen": "Geduld, Verständnis.",
+      "beruf": "Konfliktfähigkeit.",
+      "entwicklung": "Selbstvertrauen."
+    },
+    "archetyp": "Die innere Stärke"
+  },
+  {
+    "name": "Der Eremit",
+    "suit": "Große Arkana",
+    "number": "IX",
+    "kernbotschaft": "Erkenntnis durch Rückzug und Selbstreflexion.",
+    "psychologisch_aufrecht": "Innere Klarheit, Introspektion und bewusste Distanz.",
+    "psychologisch_umgekehrt": "Isolation oder Vermeidung.",
+    "anwendungsfelder": {
+      "emotionen": "Bedürfnis nach Ruhe.",
+      "beziehungen": "Abstand, Klarheit.",
+      "beruf": "Analyse, Forschung.",
+      "entwicklung": "Selbstfindung."
+    },
+    "archetyp": "Der Weise"
+  },
+  {
+    "name": "Das Rad des Schicksals",
+    "suit": "Große Arkana",
+    "number": "X",
+    "kernbotschaft": "Wandel, Zyklen und Wendepunkte.",
+    "psychologisch_aufrecht": "Akzeptanz von Veränderung und Vertrauen in Entwicklungsprozesse.",
+    "psychologisch_umgekehrt": "Gefühl von Kontrollverlust oder Widerstand gegen Wandel.",
+    "anwendungsfelder": {
+      "emotionen": "Schwankungen, Unsicherheit.",
+      "beziehungen": "Neue Phasen.",
+      "beruf": "Unerwartete Chancen.",
+      "entwicklung": "Loslassen von Kontrolle."
+    },
+    "archetyp": "Der Zyklus"
+  },
+  {
+    "name": "Gerechtigkeit",
+    "suit": "Große Arkana",
+    "number": "XI",
+    "kernbotschaft": "Ausgleich, Fairness und klare Entscheidungen.",
+    "psychologisch_aufrecht": "Objektivität, Verantwortung und innere Balance.",
+    "psychologisch_umgekehrt": "Ungerechtigkeit, Verzerrung oder Selbsttäuschung.",
+    "anwendungsfelder": {
+      "emotionen": "Klarheit, Abwägung.",
+      "beziehungen": "Ehrlichkeit, Grenzen.",
+      "beruf": "Verträge, Entscheidungen.",
+      "entwicklung": "Selbstreflexion."
+    },
+    "archetyp": "Der Ausgleich"
+  },
+  {
+    "name": "Der Gehängte",
+    "suit": "Große Arkana",
+    "number": "XII",
+    "kernbotschaft": "Perspektivwechsel und Hingabe.",
+    "psychologisch_aufrecht": "Loslassen, Akzeptanz und neue Sichtweisen.",
+    "psychologisch_umgekehrt": "Blockade, Stagnation oder Opferhaltung.",
+    "anwendungsfelder": {
+      "emotionen": "Ambivalenz, Ruhe.",
+      "beziehungen": "Geduld, Verständnis.",
+      "beruf": "Neuorientierung.",
+      "entwicklung": "Innere Wandlung."
+    },
+    "archetyp": "Der Perspektivwechsel"
+  },
+  {
+    "name": "Tod",
+    "suit": "Große Arkana",
+    "number": "XIII",
+    "kernbotschaft": "Transformation, Abschluss und Neubeginn.",
+    "psychologisch_aufrecht": "Loslassen alter Muster, tiefgreifende Veränderung.",
+    "psychologisch_umgekehrt": "Widerstand gegen Wandel oder Festhalten an Vergangenem.",
+    "anwendungsfelder": {
+      "emotionen": "Abschied, Erneuerung.",
+      "beziehungen": "Ende oder Wandel.",
+      "beruf": "Neuausrichtung.",
+      "entwicklung": "Transformation."
+    },
+    "archetyp": "Die Wandlung"
+  },
+  {
+    "name": "Mäßigkeit",
+    "suit": "Große Arkana",
+    "number": "XIV",
+    "kernbotschaft": "Balance, Integration und innere Harmonie.",
+    "psychologisch_aufrecht": "Geduld, Ausgleich und bewusste Selbstregulation.",
+    "psychologisch_umgekehrt": "Ungeduld, Extreme oder Disharmonie.",
+    "anwendungsfelder": {
+      "emotionen": "Ruhe, Ausgleich.",
+      "beziehungen": "Harmonie, Kooperation.",
+      "beruf": "Teamarbeit, Balance.",
+      "entwicklung": "Integration."
+    },
+    "archetyp": "Der Ausgleichende"
+  },
+  {
+    "name": "Der Teufel",
+    "suit": "Große Arkana",
+    "number": "XV",
+    "kernbotschaft": "Bindungen, Schattenanteile und unbewusste Muster.",
+    "psychologisch_aufrecht": "Konfrontation mit Abhängigkeiten und inneren Blockaden.",
+    "psychologisch_umgekehrt": "Befreiung oder Verdrängung.",
+    "anwendungsfelder": {
+      "emotionen": "Intensität, Fixierung.",
+      "beziehungen": "Abhängigkeit, Machtspiele.",
+      "beruf": "Stress, Druck.",
+      "entwicklung": "Schattenarbeit."
+    },
+    "archetyp": "Der Schatten"
+  },
+  {
+    "name": "Der Turm",
+    "suit": "Große Arkana",
+    "number": "XVI",
+    "kernbotschaft": "Plötzliche Veränderung und Befreiung.",
+    "psychologisch_aufrecht": "Durchbruch, Erkenntnis und Auflösung alter Strukturen.",
+    "psychologisch_umgekehrt": "Vermeidung von Konflikten oder Angst vor Veränderung.",
+    "anwendungsfelder": {
+      "emotionen": "Schock, Klarheit.",
+      "beziehungen": "Konflikte, Wahrheit.",
+      "beruf": "Umbrüche.",
+      "entwicklung": "Befreiung."
+    },
+    "archetyp": "Der Befreier"
+  },
+  {
+    "name": "Der Stern",
+    "suit": "Große Arkana",
+    "number": "XVII",
+    "kernbotschaft": "Hoffnung, Heilung und innere Führung.",
+    "psychologisch_aufrecht": "Zuversicht, Inspiration und Vertrauen.",
+    "psychologisch_umgekehrt": "Zweifel, Erschöpfung oder Orientierungslosigkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Hoffnung, Ruhe.",
+      "beziehungen": "Heilung, Nähe.",
+      "beruf": "Visionen, Kreativität.",
+      "entwicklung": "Selbstheilung."
+    },
+    "archetyp": "Die Hoffnung"
+  },
+  {
+    "name": "Der Mond",
+    "suit": "Große Arkana",
+    "number": "XVIII",
+    "kernbotschaft": "Unbewusstes, Intuition und innere Bilder.",
+    "psychologisch_aufrecht": "Sensibilität, Traumtiefe und Zugang zu inneren Prozessen.",
+    "psychologisch_umgekehrt": "Verwirrung, Angst oder Illusion.",
+    "anwendungsfelder": {
+      "emotionen": "Unsicherheit, Tiefe.",
+      "beziehungen": "Missverständnisse, Intuition.",
+      "beruf": "Kreativität, Unklarheit.",
+      "entwicklung": "Schattenarbeit."
+    },
+    "archetyp": "Das Unbewusste"
+  },
+  {
+    "name": "Die Sonne",
+    "suit": "Große Arkana",
+    "number": "XIX",
+    "kernbotschaft": "Lebensfreude, Klarheit und Erfolg.",
+    "psychologisch_aufrecht": "Optimismus, Vitalität und Selbstvertrauen.",
+    "psychologisch_umgekehrt": "Überheblichkeit oder unrealistische Erwartungen.",
+    "anwendungsfelder": {
+      "emotionen": "Freude, Energie.",
+      "beziehungen": "Wärme, Nähe.",
+      "beruf": "Erfolg, Sichtbarkeit.",
+      "entwicklung": "Selbstvertrauen."
+    },
+    "archetyp": "Das Licht"
+  },
+  {
+    "name": "Das Gericht",
+    "suit": "Große Arkana",
+    "number": "XX",
+    "kernbotschaft": "Erwachen, Erkenntnis und Neubewertung.",
+    "psychologisch_aufrecht": "Klarheit über Lebensentscheidungen und innere Wahrheit.",
+    "psychologisch_umgekehrt": "Selbstzweifel oder Vermeidung.",
+    "anwendungsfelder": {
+      "emotionen": "Erkenntnis, Befreiung.",
+      "beziehungen": "Klärung, Wahrheit.",
+      "beruf": "Neubewertung.",
+      "entwicklung": "Selbstaufrichtung."
+    },
+    "archetyp": "Das Erwachen"
+  },
+  {
+    "name": "Die Welt",
+    "suit": "Große Arkana",
+    "number": "XXI",
+    "kernbotschaft": "Vollendung, Integration und Ganzheit.",
+    "psychologisch_aufrecht": "Abschluss eines Zyklus, Harmonie und Reife.",
+    "psychologisch_umgekehrt": "Unvollständigkeit oder Verzögerung.",
+    "anwendungsfelder": {
+      "emotionen": "Zufriedenheit, Ruhe.",
+      "beziehungen": "Reife, Stabilität.",
+      "beruf": "Erfolg, Abschluss.",
+      "entwicklung": "Ganzheit."
+    },
+    "archetyp": "Die Vollendung"
+  },
+  {
+    "name": "Ass der Kelche",
+    "suit": "Kelche",
+    "number": "I",
+    "kernbotschaft": "Emotionale Öffnung und neue Verbundenheit.",
+    "psychologisch_aufrecht": "Zugang zu Gefühlen, Empathie und emotionaler Erneuerung.",
+    "psychologisch_umgekehrt": "Zurückhaltung, emotionale Blockaden.",
+    "anwendungsfelder": {
+      "emotionen": "Neubeginn, Offenheit.",
+      "beziehungen": "Neue Nähe.",
+      "beruf": "Kreative Impulse.",
+      "entwicklung": "Herzöffnung."
+    },
+    "archetyp": "Der Ursprung"
+  },
+  {
+    "name": "Zwei der Kelche",
+    "suit": "Kelche",
+    "number": "II",
+    "kernbotschaft": "Partnerschaft, Verbindung und gegenseitiges Verständnis.",
+    "psychologisch_aufrecht": "Harmonie, Resonanz und emotionale Ausgeglichenheit.",
+    "psychologisch_umgekehrt": "Disharmonie oder Abhängigkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Nähe, Vertrauen.",
+      "beziehungen": "Partnerschaft, Versöhnung.",
+      "beruf": "Kooperation.",
+      "entwicklung": "Beziehungsfähigkeit."
+    },
+    "archetyp": "Die Verbindung"
+  },
+  {
+    "name": "Drei der Kelche",
+    "suit": "Kelche",
+    "number": "III",
+    "kernbotschaft": "Freude, Gemeinschaft und emotionale Unterstützung.",
+    "psychologisch_aufrecht": "Feiern, Verbundenheit und soziale Wärme.",
+    "psychologisch_umgekehrt": "Übermaß oder soziale Erschöpfung.",
+    "anwendungsfelder": {
+      "emotionen": "Freude, Zugehörigkeit.",
+      "beziehungen": "Freundschaft, Gemeinschaft.",
+      "beruf": "Teamgeist.",
+      "entwicklung": "Soziale Integration."
+    },
+    "archetyp": "Die Gemeinschaft"
+  },
+  {
+    "name": "Vier der Kelche",
+    "suit": "Kelche",
+    "number": "IV",
+    "kernbotschaft": "Innere Abkehr, emotionale Müdigkeit und Rückzug.",
+    "psychologisch_aufrecht": "Bedürfnis nach Abstand, emotionale Überforderung oder fehlende Begeisterung.",
+    "psychologisch_umgekehrt": "Wiederöffnung, neue Chancen erkennen.",
+    "anwendungsfelder": {
+      "emotionen": "Lethargie, Überdruss.",
+      "beziehungen": "Distanz, Rückzug.",
+      "beruf": "Motivationsverlust.",
+      "entwicklung": "Neuorientierung."
+    },
+    "archetyp": "Der Rückzug"
+  },
+  {
+    "name": "Fünf der Kelche",
+    "suit": "Kelche",
+    "number": "V",
+    "kernbotschaft": "Trauer, Verlust und der Blick auf das Fehlende.",
+    "psychologisch_aufrecht": "Verarbeitung von Enttäuschungen und emotionalen Wunden.",
+    "psychologisch_umgekehrt": "Loslassen, Akzeptanz und Neubeginn.",
+    "anwendungsfelder": {
+      "emotionen": "Trauer, Bedauern.",
+      "beziehungen": "Konflikte, Abschied.",
+      "beruf": "Fehleranalyse.",
+      "entwicklung": "Heilung."
+    },
+    "archetyp": "Der Verlust"
+  },
+  {
+    "name": "Sechs der Kelche",
+    "suit": "Kelche",
+    "number": "VI",
+    "kernbotschaft": "Erinnerung, Nostalgie und emotionale Unschuld.",
+    "psychologisch_aufrecht": "Zugang zu positiven Erinnerungen und innerer Leichtigkeit.",
+    "psychologisch_umgekehrt": "Festhalten an der Vergangenheit.",
+    "anwendungsfelder": {
+      "emotionen": "Nostalgie, Wärme.",
+      "beziehungen": "Versöhnung, alte Kontakte.",
+      "beruf": "Rückkehr zu alten Projekten.",
+      "entwicklung": "Innere Kindarbeit."
+    },
+    "archetyp": "Die Erinnerung"
+  },
+  {
+    "name": "Sieben der Kelche",
+    "suit": "Kelche",
+    "number": "VII",
+    "kernbotschaft": "Illusionen, Möglichkeiten und Verwirrung.",
+    "psychologisch_aufrecht": "Fantasie, Kreativität und Visionen.",
+    "psychologisch_umgekehrt": "Klarheit, Fokus und Realismus.",
+    "anwendungsfelder": {
+      "emotionen": "Überforderung.",
+      "beziehungen": "Unklare Erwartungen.",
+      "beruf": "Zu viele Optionen.",
+      "entwicklung": "Fokussierung."
+    },
+    "archetyp": "Der Träumer"
+  },
+  {
+    "name": "Acht der Kelche",
+    "suit": "Kelche",
+    "number": "VIII",
+    "kernbotschaft": "Loslassen und Aufbruch zu etwas Bedeutenderem.",
+    "psychologisch_aufrecht": "Mut, sich von Unbefriedigendem zu lösen.",
+    "psychologisch_umgekehrt": "Festhalten aus Angst.",
+    "anwendungsfelder": {
+      "emotionen": "Enttäuschung, Klarheit.",
+      "beziehungen": "Trennung, Abstand.",
+      "beruf": "Jobwechsel.",
+      "entwicklung": "Innere Wahrheit suchen."
+    },
+    "archetyp": "Der Wanderer"
+  },
+  {
+    "name": "Neun der Kelche",
+    "suit": "Kelche",
+    "number": "IX",
+    "kernbotschaft": "Erfüllung, Zufriedenheit und Genuss.",
+    "psychologisch_aufrecht": "Selbstwert, Dankbarkeit und emotionale Fülle.",
+    "psychologisch_umgekehrt": "Übermaß oder Selbstgefälligkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Freude, Zufriedenheit.",
+      "beziehungen": "Harmonie.",
+      "beruf": "Erfolg.",
+      "entwicklung": "Selbstannahme."
+    },
+    "archetyp": "Die Erfüllung"
+  },
+  {
+    "name": "Zehn der Kelche",
+    "suit": "Kelche",
+    "number": "X",
+    "kernbotschaft": "Emotionale Vollendung und familiäre Harmonie.",
+    "psychologisch_aufrecht": "Tiefe Verbundenheit, Stabilität und Glück.",
+    "psychologisch_umgekehrt": "Disharmonie oder unerfüllte Erwartungen.",
+    "anwendungsfelder": {
+      "emotionen": "Glück, Frieden.",
+      "beziehungen": "Familie, Partnerschaft.",
+      "beruf": "Teamharmonie.",
+      "entwicklung": "Innere Ganzheit."
+    },
+    "archetyp": "Die Harmonie"
+  },
+  {
+    "name": "Bube der Kelche",
+    "suit": "Kelche",
+    "number": "",
+    "kernbotschaft": "Emotionale Offenheit und Sensibilität.",
+    "psychologisch_aufrecht": "Kreativität, Empathie und Intuition.",
+    "psychologisch_umgekehrt": "Überempfindlichkeit oder Unsicherheit.",
+    "anwendungsfelder": {
+      "emotionen": "Zartheit.",
+      "beziehungen": "Romantik.",
+      "beruf": "Kreative Ideen.",
+      "entwicklung": "Emotionales Lernen."
+    },
+    "archetyp": "Der Empath"
+  },
+  {
+    "name": "Ritter der Kelche",
+    "suit": "Kelche",
+    "number": "",
+    "kernbotschaft": "Romantik, Idealismus und emotionale Bewegung.",
+    "psychologisch_aufrecht": "Gefühlvolle Initiative und Inspiration.",
+    "psychologisch_umgekehrt": "Unrealistische Erwartungen.",
+    "anwendungsfelder": {
+      "emotionen": "Schwärmerei.",
+      "beziehungen": "Annäherung.",
+      "beruf": "Kreative Projekte.",
+      "entwicklung": "Emotionaler Ausdruck."
+    },
+    "archetyp": "Der Romantiker"
+  },
+  {
+    "name": "Königin der Kelche",
+    "suit": "Kelche",
+    "number": "",
+    "kernbotschaft": "Tiefe Empathie und emotionale Weisheit.",
+    "psychologisch_aufrecht": "Intuition, Fürsorge und emotionale Stabilität.",
+    "psychologisch_umgekehrt": "Überempfindlichkeit oder Selbstaufgabe.",
+    "anwendungsfelder": {
+      "emotionen": "Tiefe Gefühle.",
+      "beziehungen": "Empathie.",
+      "beruf": "Beratung, Pflege.",
+      "entwicklung": "Emotionale Reife."
+    },
+    "archetyp": "Die Empathin"
+  },
+  {
+    "name": "König der Kelche",
+    "suit": "Kelche",
+    "number": "",
+    "kernbotschaft": "Emotionale Balance und reife Führung.",
+    "psychologisch_aufrecht": "Stabilität, Mitgefühl und Selbstkontrolle.",
+    "psychologisch_umgekehrt": "Verdrängung oder emotionale Instabilität.",
+    "anwendungsfelder": {
+      "emotionen": "Ruhe.",
+      "beziehungen": "Reife.",
+      "beruf": "Führung.",
+      "entwicklung": "Emotionale Meisterschaft."
+    },
+    "archetyp": "Der Weise des Herzens"
+  },
+  {
+    "name": "Ass der Stäbe",
+    "suit": "Stäbe",
+    "number": "I",
+    "kernbotschaft": "Neuer Antrieb, Energie und Inspiration.",
+    "psychologisch_aufrecht": "Tatkraft, Motivation und kreativer Impuls.",
+    "psychologisch_umgekehrt": "Blockierter Antrieb.",
+    "anwendungsfelder": {
+      "emotionen": "Begeisterung.",
+      "beziehungen": "Neuer Funke.",
+      "beruf": "Projektstart.",
+      "entwicklung": "Selbstentfaltung."
+    },
+    "archetyp": "Der Funke"
+  },
+  {
+    "name": "Zwei der Stäbe",
+    "suit": "Stäbe",
+    "number": "II",
+    "kernbotschaft": "Planung, Weitblick und Entscheidung.",
+    "psychologisch_aufrecht": "Selbstvertrauen und strategisches Denken.",
+    "psychologisch_umgekehrt": "Zögern oder Angst vor Expansion.",
+    "anwendungsfelder": {
+      "emotionen": "Unsicherheit.",
+      "beziehungen": "Entscheidungen.",
+      "beruf": "Planung.",
+      "entwicklung": "Horizonterweiterung."
+    },
+    "archetyp": "Der Planer"
+  },
+  {
+    "name": "Drei der Stäbe",
+    "suit": "Stäbe",
+    "number": "III",
+    "kernbotschaft": "Ausblick, Wachstum und Fortschritt.",
+    "psychologisch_aufrecht": "Zuversicht, Initiative und Expansion.",
+    "psychologisch_umgekehrt": "Verzögerung oder fehlende Perspektive.",
+    "anwendungsfelder": {
+      "emotionen": "Hoffnung.",
+      "beziehungen": "Entwicklung.",
+      "beruf": "Wachstum.",
+      "entwicklung": "Weitblick."
+    },
+    "archetyp": "Der Entdecker"
+  },
+  {
+    "name": "Vier der Stäbe",
+    "suit": "Stäbe",
+    "number": "IV",
+    "kernbotschaft": "Stabilität, Freude und Gemeinschaft.",
+    "psychologisch_aufrecht": "Erfolge feiern, soziale Harmonie.",
+    "psychologisch_umgekehrt": "Unruhe oder fehlende Anerkennung.",
+    "anwendungsfelder": {
+      "emotionen": "Freude.",
+      "beziehungen": "Feiern.",
+      "beruf": "Erfolge.",
+      "entwicklung": "Stabilität."
+    },
+    "archetyp": "Die Feier"
+  },
+  {
+    "name": "Fünf der Stäbe",
+    "suit": "Stäbe",
+    "number": "V",
+    "kernbotschaft": "Konflikt, Wettbewerb und Reibung.",
+    "psychologisch_aufrecht": "Dynamik, Herausforderung und Lernprozesse.",
+    "psychologisch_umgekehrt": "Konfliktvermeidung oder Chaos.",
+    "anwendungsfelder": {
+      "emotionen": "Spannung.",
+      "beziehungen": "Streit.",
+      "beruf": "Wettbewerb.",
+      "entwicklung": "Konfliktfähigkeit."
+    },
+    "archetyp": "Der Kämpfer"
+  },
+  {
+    "name": "Sechs der Stäbe",
+    "suit": "Stäbe",
+    "number": "VI",
+    "kernbotschaft": "Erfolg, Anerkennung und Fortschritt.",
+    "psychologisch_aufrecht": "Selbstvertrauen, Motivation und Triumph.",
+    "psychologisch_umgekehrt": "Zweifel oder fehlende Anerkennung.",
+    "anwendungsfelder": {
+      "emotionen": "Stolz.",
+      "beziehungen": "Anerkennung.",
+      "beruf": "Erfolg.",
+      "entwicklung": "Selbstwert."
+    },
+    "archetyp": "Der Sieger"
+  },
+  {
+    "name": "Sieben der Stäbe",
+    "suit": "Stäbe",
+    "number": "VII",
+    "kernbotschaft": "Standhaftigkeit, Mut und Selbstbehauptung.",
+    "psychologisch_aufrecht": "Grenzen setzen, Position verteidigen.",
+    "psychologisch_umgekehrt": "Überforderung oder Rückzug.",
+    "anwendungsfelder": {
+      "emotionen": "Anspannung.",
+      "beziehungen": "Grenzen.",
+      "beruf": "Durchsetzung.",
+      "entwicklung": "Selbstbehauptung."
+    },
+    "archetyp": "Der Verteidiger"
+  },
+  {
+    "name": "Acht der Stäbe",
+    "suit": "Stäbe",
+    "number": "VIII",
+    "kernbotschaft": "Bewegung, Tempo und Kommunikation.",
+    "psychologisch_aufrecht": "Klarheit, Dynamik und schnelle Entwicklung.",
+    "psychologisch_umgekehrt": "Verzögerung oder Chaos.",
+    "anwendungsfelder": {
+      "emotionen": "Aufregung.",
+      "beziehungen": "Nachrichten.",
+      "beruf": "Schnelle Fortschritte.",
+      "entwicklung": "Momentum."
+    },
+    "archetyp": "Der Impuls"
+  },
+  {
+    "name": "Neun der Stäbe",
+    "suit": "Stäbe",
+    "number": "IX",
+    "kernbotschaft": "Durchhalten, Widerstandskraft und Schutz.",
+    "psychologisch_aufrecht": "Resilienz, Vorsicht und Stärke.",
+    "psychologisch_umgekehrt": "Erschöpfung oder Misstrauen.",
+    "anwendungsfelder": {
+      "emotionen": "Anspannung.",
+      "beziehungen": "Schutzmechanismen.",
+      "beruf": "Belastung.",
+      "entwicklung": "Resilienz."
+    },
+    "archetyp": "Der Wächter"
+  },
+  {
+    "name": "Zehn der Stäbe",
+    "suit": "Stäbe",
+    "number": "X",
+    "kernbotschaft": "Überlastung, Verantwortung und Druck.",
+    "psychologisch_aufrecht": "Pflichtbewusstsein und Ausdauer.",
+    "psychologisch_umgekehrt": "Überforderung oder Delegationsbedarf.",
+    "anwendungsfelder": {
+      "emotionen": "Stress.",
+      "beziehungen": "Belastung.",
+      "beruf": "Überarbeitung.",
+      "entwicklung": "Grenzen erkennen."
+    },
+    "archetyp": "Die Last"
+  },
+  {
+    "name": "Bube der Stäbe",
+    "suit": "Stäbe",
+    "number": "",
+    "kernbotschaft": "Neugier, Abenteuerlust und Inspiration.",
+    "psychologisch_aufrecht": "Mut, Kreativität und Entdeckergeist.",
+    "psychologisch_umgekehrt": "Unruhe oder Planlosigkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Begeisterung.",
+      "beziehungen": "Neuer Kontakt.",
+      "beruf": "Ideenfindung.",
+      "entwicklung": "Neugier."
+    },
+    "archetyp": "Der Abenteurer"
+  },
+  {
+    "name": "Ritter der Stäbe",
+    "suit": "Stäbe",
+    "number": "",
+    "kernbotschaft": "Tatkraft, Leidenschaft und Vorwärtsdrang.",
+    "psychologisch_aufrecht": "Mut, Initiative und Energie.",
+    "psychologisch_umgekehrt": "Impulsivität oder Übermut.",
+    "anwendungsfelder": {
+      "emotionen": "Feuer.",
+      "beziehungen": "Leidenschaft.",
+      "beruf": "Aktion.",
+      "entwicklung": "Selbstentfaltung."
+    },
+    "archetyp": "Der Eroberer"
+  },
+  {
+    "name": "Königin der Stäbe",
+    "suit": "Stäbe",
+    "number": "",
+    "kernbotschaft": "Selbstbewusstsein, Charisma und innere Stärke.",
+    "psychologisch_aufrecht": "Wärme, Mut und Führungsstärke.",
+    "psychologisch_umgekehrt": "Unsicherheit oder Überforderung.",
+    "anwendungsfelder": {
+      "emotionen": "Selbstvertrauen.",
+      "beziehungen": "Ausstrahlung.",
+      "beruf": "Führung.",
+      "entwicklung": "Selbstbewusstsein."
+    },
+    "archetyp": "Die Strahlende"
+  },
+  {
+    "name": "König der Stäbe",
+    "suit": "Stäbe",
+    "number": "",
+    "kernbotschaft": "Vision, Führung und Entschlossenheit.",
+    "psychologisch_aufrecht": "Klarheit, Mut und Zielstrebigkeit.",
+    "psychologisch_umgekehrt": "Dominanz oder Ungeduld.",
+    "anwendungsfelder": {
+      "emotionen": "Stärke.",
+      "beziehungen": "Führung.",
+      "beruf": "Vision.",
+      "entwicklung": "Selbstbestimmung."
+    },
+    "archetyp": "Der Visionär"
+  },
+  {
+    "name": "Ass der Schwerter",
+    "suit": "Schwerter",
+    "number": "I",
+    "kernbotschaft": "Klarheit, Wahrheit und geistiger Durchbruch.",
+    "psychologisch_aufrecht": "Mentale Schärfe, Erkenntnis und klare Entscheidungen.",
+    "psychologisch_umgekehrt": "Verwirrung, Zweifel oder destruktive Gedanken.",
+    "anwendungsfelder": {
+      "emotionen": "Klarheit, Distanz.",
+      "beziehungen": "Ehrlichkeit.",
+      "beruf": "Analyse, Entscheidungen.",
+      "entwicklung": "Geistige Klarheit."
+    },
+    "archetyp": "Der Durchbruch"
+  },
+  {
+    "name": "Zwei der Schwerter",
+    "suit": "Schwerter",
+    "number": "II",
+    "kernbotschaft": "Unentschlossenheit und innere Blockade.",
+    "psychologisch_aufrecht": "Balance, Abwägung und innere Ruhe.",
+    "psychologisch_umgekehrt": "Verdrängung oder Entscheidungsangst.",
+    "anwendungsfelder": {
+      "emotionen": "Ambivalenz.",
+      "beziehungen": "Schweigen.",
+      "beruf": "Abwarten.",
+      "entwicklung": "Innere Klärung."
+    },
+    "archetyp": "Die Schwelle"
+  },
+  {
+    "name": "Drei der Schwerter",
+    "suit": "Schwerter",
+    "number": "III",
+    "kernbotschaft": "Schmerz, Enttäuschung und emotionale Wunden.",
+    "psychologisch_aufrecht": "Konfrontation mit Verletzungen.",
+    "psychologisch_umgekehrt": "Heilung, Vergebung.",
+    "anwendungsfelder": {
+      "emotionen": "Trauer.",
+      "beziehungen": "Trennung.",
+      "beruf": "Konflikte.",
+      "entwicklung": "Verarbeitung."
+    },
+    "archetyp": "Der Schmerz"
+  },
+  {
+    "name": "Vier der Schwerter",
+    "suit": "Schwerter",
+    "number": "IV",
+    "kernbotschaft": "Ruhe, Erholung und geistige Regeneration.",
+    "psychologisch_aufrecht": "Rückzug, Heilung und Klarheit.",
+    "psychologisch_umgekehrt": "Unruhe oder Erschöpfung.",
+    "anwendungsfelder": {
+      "emotionen": "Ruhe.",
+      "beziehungen": "Abstand.",
+      "beruf": "Pause.",
+      "entwicklung": "Regeneration."
+    },
+    "archetyp": "Die Ruhe"
+  },
+  {
+    "name": "Fünf der Schwerter",
+    "suit": "Schwerter",
+    "number": "V",
+    "kernbotschaft": "Konflikt, Ego und unfaire Auseinandersetzungen.",
+    "psychologisch_aufrecht": "Konfrontation, aber mit Risiko.",
+    "psychologisch_umgekehrt": "Versöhnung oder Einsicht.",
+    "anwendungsfelder": {
+      "emotionen": "Spannung.",
+      "beziehungen": "Streit.",
+      "beruf": "Konflikte.",
+      "entwicklung": "Selbstreflexion."
+    },
+    "archetyp": "Der Konflikt"
+  },
+  {
+    "name": "Sechs der Schwerter",
+    "suit": "Schwerter",
+    "number": "VI",
+    "kernbotschaft": "Übergang, Heilung und Loslassen.",
+    "psychologisch_aufrecht": "Ruhiger Wandel, mentale Erholung.",
+    "psychologisch_umgekehrt": "Festhalten an Schmerz.",
+    "anwendungsfelder": {
+      "emotionen": "Erleichterung.",
+      "beziehungen": "Distanz.",
+      "beruf": "Wechsel.",
+      "entwicklung": "Heilung."
+    },
+    "archetyp": "Der Übergang"
+  },
+  {
+    "name": "Sieben der Schwerter",
+    "suit": "Schwerter",
+    "number": "VII",
+    "kernbotschaft": "List, Strategie und verdeckte Motive.",
+    "psychologisch_aufrecht": "Taktik, Vorsicht und kluges Handeln.",
+    "psychologisch_umgekehrt": "Ehrlichkeit, Aufdeckung.",
+    "anwendungsfelder": {
+      "emotionen": "Misstrauen.",
+      "beziehungen": "Geheimnisse.",
+      "beruf": "Strategie.",
+      "entwicklung": "Selbstreflexion."
+    },
+    "archetyp": "Der Taktiker"
+  },
+  {
+    "name": "Acht der Schwerter",
+    "suit": "Schwerter",
+    "number": "VIII",
+    "kernbotschaft": "Selbstbegrenzung und mentale Blockaden.",
+    "psychologisch_aufrecht": "Gefühl von Gefangenheit.",
+    "psychologisch_umgekehrt": "Befreiung, neue Perspektiven.",
+    "anwendungsfelder": {
+      "emotionen": "Angst.",
+      "beziehungen": "Blockaden.",
+      "beruf": "Stillstand.",
+      "entwicklung": "Selbstbefreiung."
+    },
+    "archetyp": "Die Fessel"
+  },
+  {
+    "name": "Neun der Schwerter",
+    "suit": "Schwerter",
+    "number": "IX",
+    "kernbotschaft": "Sorgen, Angst und innere Belastung.",
+    "psychologisch_aufrecht": "Konfrontation mit inneren Ängsten.",
+    "psychologisch_umgekehrt": "Erleichterung, Heilung.",
+    "anwendungsfelder": {
+      "emotionen": "Angst.",
+      "beziehungen": "Sorgen.",
+      "beruf": "Stress.",
+      "entwicklung": "Bewältigung."
+    },
+    "archetyp": "Die Angst"
+  },
+  {
+    "name": "Zehn der Schwerter",
+    "suit": "Schwerter",
+    "number": "X",
+    "kernbotschaft": "Ende, Zusammenbruch und Neubeginn.",
+    "psychologisch_aufrecht": "Akzeptanz eines Endes.",
+    "psychologisch_umgekehrt": "Wiederaufstehen.",
+    "anwendungsfelder": {
+      "emotionen": "Erschöpfung.",
+      "beziehungen": "Abbruch.",
+      "beruf": "Scheitern.",
+      "entwicklung": "Neuanfang."
+    },
+    "archetyp": "Der Abschluss"
+  },
+  {
+    "name": "Bube der Schwerter",
+    "suit": "Schwerter",
+    "number": "",
+    "kernbotschaft": "Neugier, Wachsamkeit und geistige Aktivität.",
+    "psychologisch_aufrecht": "Analyse, Lernen, Beobachtung.",
+    "psychologisch_umgekehrt": "Unruhe oder Misstrauen.",
+    "anwendungsfelder": {
+      "emotionen": "Nervosität.",
+      "beziehungen": "Kommunikation.",
+      "beruf": "Recherche.",
+      "entwicklung": "Geistige Reife."
+    },
+    "archetyp": "Der Beobachter"
+  },
+  {
+    "name": "Ritter der Schwerter",
+    "suit": "Schwerter",
+    "number": "",
+    "kernbotschaft": "Tatkraft, Intellekt und Entschlossenheit.",
+    "psychologisch_aufrecht": "Klarheit, Mut und Zielstrebigkeit.",
+    "psychologisch_umgekehrt": "Überstürztes Handeln.",
+    "anwendungsfelder": {
+      "emotionen": "Intensität.",
+      "beziehungen": "Konfrontation.",
+      "beruf": "Aktion.",
+      "entwicklung": "Fokus."
+    },
+    "archetyp": "Der Kämpfer"
+  },
+  {
+    "name": "Königin der Schwerter",
+    "suit": "Schwerter",
+    "number": "",
+    "kernbotschaft": "Klarheit, Unabhängigkeit und geistige Stärke.",
+    "psychologisch_aufrecht": "Objektivität, Wahrheit und Integrität.",
+    "psychologisch_umgekehrt": "Härte oder Distanz.",
+    "anwendungsfelder": {
+      "emotionen": "Kühle.",
+      "beziehungen": "Grenzen.",
+      "beruf": "Analyse.",
+      "entwicklung": "Selbstbestimmung."
+    },
+    "archetyp": "Die Analytikerin"
+  },
+  {
+    "name": "König der Schwerter",
+    "suit": "Schwerter",
+    "number": "",
+    "kernbotschaft": "Intellekt, Autorität und klare Entscheidungen.",
+    "psychologisch_aufrecht": "Logik, Struktur und Führung.",
+    "psychologisch_umgekehrt": "Strenge oder Kälte.",
+    "anwendungsfelder": {
+      "emotionen": "Distanz.",
+      "beziehungen": "Klarheit.",
+      "beruf": "Führung.",
+      "entwicklung": "Geistige Meisterschaft."
+    },
+    "archetyp": "Der Stratege"
+  },
+  {
+    "name": "Ass der Münzen",
+    "suit": "Münzen",
+    "number": "I",
+    "kernbotschaft": "Materieller Neubeginn, Stabilität und Chancen.",
+    "psychologisch_aufrecht": "Sicherheit, Bodenständigkeit und Realismus.",
+    "psychologisch_umgekehrt": "Verpasste Chancen.",
+    "anwendungsfelder": {
+      "emotionen": "Sicherheit.",
+      "beziehungen": "Stabilität.",
+      "beruf": "Finanzen.",
+      "entwicklung": "Fundament."
+    },
+    "archetyp": "Der Samen"
+  },
+  {
+    "name": "Zwei der Münzen",
+    "suit": "Münzen",
+    "number": "II",
+    "kernbotschaft": "Balance, Flexibilität und Anpassung.",
+    "psychologisch_aufrecht": "Organisation, Leichtigkeit und Wandel.",
+    "psychologisch_umgekehrt": "Überforderung.",
+    "anwendungsfelder": {
+      "emotionen": "Schwankung.",
+      "beziehungen": "Balance.",
+      "beruf": "Multitasking.",
+      "entwicklung": "Flexibilität."
+    },
+    "archetyp": "Der Jongleur"
+  },
+  {
+    "name": "Drei der Münzen",
+    "suit": "Münzen",
+    "number": "III",
+    "kernbotschaft": "Zusammenarbeit, Kompetenz und Aufbau.",
+    "psychologisch_aufrecht": "Teamarbeit, Anerkennung und Struktur.",
+    "psychologisch_umgekehrt": "Disharmonie oder fehlende Kooperation.",
+    "anwendungsfelder": {
+      "emotionen": "Stabilität.",
+      "beziehungen": "Zusammenarbeit.",
+      "beruf": "Projekte.",
+      "entwicklung": "Kompetenz."
+    },
+    "archetyp": "Der Baumeister"
+  },
+  {
+    "name": "Vier der Münzen",
+    "suit": "Münzen",
+    "number": "IV",
+    "kernbotschaft": "Sicherheit, Kontrolle und Festhalten.",
+    "psychologisch_aufrecht": "Stabilität, Ordnung und Schutz.",
+    "psychologisch_umgekehrt": "Loslassen, Flexibilität.",
+    "anwendungsfelder": {
+      "emotionen": "Festhalten.",
+      "beziehungen": "Kontrolle.",
+      "beruf": "Sparen.",
+      "entwicklung": "Sicherheit."
+    },
+    "archetyp": "Der Bewahrer"
+  },
+  {
+    "name": "Fünf der Münzen",
+    "suit": "Münzen",
+    "number": "V",
+    "kernbotschaft": "Mangel, Verlust und Unsicherheit.",
+    "psychologisch_aufrecht": "Gefühl von Isolation oder Not.",
+    "psychologisch_umgekehrt": "Hoffnung, Unterstützung.",
+    "anwendungsfelder": {
+      "emotionen": "Traurigkeit.",
+      "beziehungen": "Distanz.",
+      "beruf": "Finanzielle Sorgen.",
+      "entwicklung": "Durchhalten."
+    },
+    "archetyp": "Der Mangel"
+  },
+  {
+    "name": "Sechs der Münzen",
+    "suit": "Münzen",
+    "number": "VI",
+    "kernbotschaft": "Geben, Nehmen und Ausgleich.",
+    "psychologisch_aufrecht": "Großzügigkeit, Fairness und Unterstützung.",
+    "psychologisch_umgekehrt": "Ungleichgewicht.",
+    "anwendungsfelder": {
+      "emotionen": "Wärme.",
+      "beziehungen": "Geben und Nehmen.",
+      "beruf": "Ressourcen.",
+      "entwicklung": "Balance."
+    },
+    "archetyp": "Der Geber"
+  },
+  {
+    "name": "Sieben der Münzen",
+    "suit": "Münzen",
+    "number": "VII",
+    "kernbotschaft": "Geduld, Wachstum und langfristige Planung.",
+    "psychologisch_aufrecht": "Ausdauer, Analyse und Erwartung.",
+    "psychologisch_umgekehrt": "Ungeduld oder Zweifel.",
+    "anwendungsfelder": {
+      "emotionen": "Warten.",
+      "beziehungen": "Entwicklung.",
+      "beruf": "Investition.",
+      "entwicklung": "Geduld."
+    },
+    "archetyp": "Der Gärtner"
+  },
+  {
+    "name": "Acht der Münzen",
+    "suit": "Münzen",
+    "number": "VIII",
+    "kernbotschaft": "Fleiß, Lernen und Meisterschaft.",
+    "psychologisch_aufrecht": "Disziplin, Fokus und Verbesserung.",
+    "psychologisch_umgekehrt": "Perfektionismus oder Erschöpfung.",
+    "anwendungsfelder": {
+      "emotionen": "Fokus.",
+      "beziehungen": "Arbeit an Beziehungen.",
+      "beruf": "Handwerk, Lernen.",
+      "entwicklung": "Meisterschaft."
+    },
+    "archetyp": "Der Lehrling"
+  },
+  {
+    "name": "Neun der Münzen",
+    "suit": "Münzen",
+    "number": "IX",
+    "kernbotschaft": "Unabhängigkeit, Wohlstand und Selbstwert.",
+    "psychologisch_aufrecht": "Selbstvertrauen, Genuss und Stabilität.",
+    "psychologisch_umgekehrt": "Unsicherheit oder Abhängigkeit.",
+    "anwendungsfelder": {
+      "emotionen": "Zufriedenheit.",
+      "beziehungen": "Unabhängigkeit.",
+      "beruf": "Erfolg.",
+      "entwicklung": "Selbstwert."
+    },
+    "archetyp": "Die Selbstständige"
+  },
+  {
+    "name": "Zehn der Münzen",
+    "suit": "Münzen",
+    "number": "X",
+    "kernbotschaft": "Fülle, Stabilität und langfristiger Erfolg.",
+    "psychologisch_aufrecht": "Sicherheit, Tradition und Wohlstand.",
+    "psychologisch_umgekehrt": "Unsicherheit oder Konflikte.",
+    "anwendungsfelder": {
+      "emotionen": "Stabilität.",
+      "beziehungen": "Familie.",
+      "beruf": "Erfolg.",
+      "entwicklung": "Fundament."
+    },
+    "archetyp": "Die Fülle"
+  },
+  {
+    "name": "Bube der Münzen",
+    "suit": "Münzen",
+    "number": "",
+    "kernbotschaft": "Lernen, Neugier und materielle Chancen.",
+    "psychologisch_aufrecht": "Fleiß, Fokus und Entwicklung.",
+    "psychologisch_umgekehrt": "Unkonzentriertheit.",
+    "anwendungsfelder": {
+      "emotionen": "Neugier.",
+      "beziehungen": "Praktische Schritte.",
+      "beruf": "Ausbildung.",
+      "entwicklung": "Lernen."
+    },
+    "archetyp": "Der Schüler"
+  },
+  {
+    "name": "Ritter der Münzen",
+    "suit": "Münzen",
+    "number": "",
+    "kernbotschaft": "Beständigkeit, Pflichtbewusstsein und Ausdauer.",
+    "psychologisch_aufrecht": "Zuverlässigkeit, Struktur und Geduld.",
+    "psychologisch_umgekehrt": "Starrheit oder Trägheit.",
+    "anwendungsfelder": {
+      "emotionen": "Stabilität.",
+      "beziehungen": "Verlässlichkeit.",
+      "beruf": "Routine.",
+      "entwicklung": "Disziplin."
+    },
+    "archetyp": "Der Arbeiter"
+  },
+  {
+    "name": "Königin der Münzen",
+    "suit": "Münzen",
+    "number": "",
+    "kernbotschaft": "Fürsorge, Stabilität und materielle Sicherheit.",
+    "psychologisch_aufrecht": "Praktische Weisheit, Wärme und Erdung.",
+    "psychologisch_umgekehrt": "Überfürsorge oder Vernachlässigung eigener Bedürfnisse.",
+    "anwendungsfelder": {
+      "emotionen": "Wärme.",
+      "beziehungen": "Fürsorge.",
+      "beruf": "Organisation.",
+      "entwicklung": "Selbstfürsorge."
+    },
+    "archetyp": "Die Versorgerin"
+  },
+  {
+    "name": "König der Münzen",
+    "suit": "Münzen",
+    "number": "",
+    "kernbotschaft": "Stabilität, Wohlstand und verantwortungsvolle Führung.",
+    "psychologisch_aufrecht": "Sicherheit, Struktur und Erfolg.",
+    "psychologisch_umgekehrt": "Materialismus oder Starrheit.",
+    "anwendungsfelder": {
+      "emotionen": "Ruhe.",
+      "beziehungen": "Stabilität.",
+      "beruf": "Führung.",
+      "entwicklung": "Reife."
+    },
+    "archetyp": "Der Herrscher der Materie"
+  }
+]
