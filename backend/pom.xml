@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.4</version>
+        <version>3.4.13</version>
         <relativePath/>
     </parent>
 
@@ -31,6 +31,15 @@
 
         <!-- Jackson: JSON-Deserialisierung (wie Newtonsoft.Json in C#) -->
         <!-- Ist automatisch in spring-boot-starter-web enthalten -->
+
+        <!-- SpringDoc OpenAPI: Generiert automatisch Swagger UI + OpenAPI 3 Spec -->
+        <!-- Erreichbar unter http://localhost:8080/swagger-ui.html -->
+        <!-- Entspricht Swashbuckle.AspNetCore in ASP.NET Core -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.17</version>
+        </dependency>
 
         <!-- Spring Test: JUnit 5 + Mockito für Tests -->
         <dependency>
