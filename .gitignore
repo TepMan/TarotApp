@@ -1,0 +1,23 @@
+# === Backend (Maven / Java) ===
+backend/target/
+backend/.mvn/repository/
+*.jar
+*.war
+*.class
+
+# === Frontend (Node.js / Vite) ===
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# === IDE ===
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
