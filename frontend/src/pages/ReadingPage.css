@@ -10,7 +10,8 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px 18px;
-  background: var(--social-bg);
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
 }
 
 .reading-header h1 {
@@ -31,7 +32,8 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
-  background: var(--social-bg);
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
 }
 
 .selected-spread-description h2 {
@@ -54,6 +56,8 @@
   padding: 16px;
   text-align: left;
   min-height: 140px;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
 }
 
 .panel h2 {
@@ -61,8 +65,13 @@
   font-size: 19px;
 }
 
-.panel-board {
+.panel.panel-board {
   min-height: 480px;
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .panel-interpretation {
@@ -309,7 +318,7 @@
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
-  background: var(--social-bg);
+  background: #313836;
   display: flex;
   flex-direction: column;
   gap: 8px;
