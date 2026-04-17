@@ -1,14 +1,11 @@
 import { useState } from 'react'
-import { InterpretationPanel } from '../features/reading/InterpretationPanel'
-import { PositionEditor } from '../features/reading/PositionEditor'
 import { SpreadBoard } from '../features/reading/SpreadBoard'
 import { SpreadSelector } from '../features/reading/SpreadSelector'
-import type { PositionCardSelection, SpreadSummary } from '../types/tarot'
+import type { SpreadSummary } from '../types/tarot'
 import './ReadingPage.css'
 
 export function ReadingPage() {
   const [selectedSpread, setSelectedSpread] = useState<SpreadSummary | null>(null)
-  const [positionSelections, setPositionSelections] = useState<PositionCardSelection[]>([])
 
   return (
     <main className="reading-page">
@@ -40,25 +37,6 @@ export function ReadingPage() {
         <h2>Board</h2>
         <SpreadBoard spreadId={selectedSpread?.id} spreadName={selectedSpread?.name} />
       </article>
-
-      <section className="reading-grid" aria-label="Positions-Editor und Interpretation">
-        <article className="panel panel-editor" aria-label="Positions-Editor">
-          <h2>Positionen bearbeiten</h2>
-          <PositionEditor
-            spreadId={selectedSpread?.id}
-            spreadName={selectedSpread?.name}
-            onSelectionsChange={setPositionSelections}
-          />
-        </article>
-
-        <article className="panel panel-interpretation" aria-label="Interpretation">
-          <h2>Interpretation</h2>
-          <InterpretationPanel
-            selections={positionSelections}
-            totalPositions={selectedSpread?.positionCount}
-          />
-        </article>
-      </section>
     </main>
   )
 }

@@ -316,6 +316,7 @@
 .spread-board-grid {
   display: grid;
   gap: 10px;
+  align-items: start;
 }
 
 .spread-position-tile {
@@ -325,7 +326,14 @@
   background: var(--social-bg);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  min-height: 220px;
+}
+
+.spread-position-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .spread-position-index {
@@ -339,4 +347,59 @@
 
 .spread-position-tile p {
   font-size: 14px;
+  margin: 0;
+}
+
+.tile-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.tile-control select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  padding: 6px 8px;
+}
+
+.tile-orientation-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.orientation-toggle {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-h);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.tile-interpretation {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tile-image {
+  width: 88px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease;
+}
+
+.tile-image.is-reversed {
+  transform: rotate(180deg);
+}
+
+.tile-error {
+  color: #c0392b;
 }

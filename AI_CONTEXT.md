@@ -100,6 +100,7 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
 - Frontend Schritt 5 ist umgesetzt: `PositionEditor` laedt Positionen + Karten, erlaubt pro Position die Auswahl von Karte und Orientierung und meldet die Belegung an `ReadingPage`.
 - Frontend Schritt 6 ist umgesetzt: `InterpretationPanel` laedt pro belegter Position die Interpretation via `/api/cards/{name}/interpretation` und zeigt Kernbotschaft/Psychologie/Archetyp inkl. Bild an.
 - Frontend-Feinschliff (Schritt 1-3) ist umgesetzt: Branding auf "TepMan's Tarot App", zentrierte Legemuster-Auswahl als Dropdown (Default `three-card`) und neue Seitenstruktur mit Beschreibung oberhalb des prominenten Boards.
+- Frontend-Feinschliff (Board-zentrierter Flow) ist umgesetzt: Kartenwahl + Orientierung direkt in den Board-Kacheln, Bildrotation bei umgekehrter Orientierung und Interpretation pro Kachel.
 
 ## 6) Naechste pragmatische Schritte
 1. Frontend-Feinschliff: UX verbessern (Suchfeld im PositionEditor, bessere Fehlermeldungen, optional lokale Persistenz der aktuellen Legung).
