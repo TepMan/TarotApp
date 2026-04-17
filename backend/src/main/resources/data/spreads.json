@@ -22,6 +22,52 @@
       { "index": 4, "key": "top",    "label": "Bewusst",        "prompt": "Was ist dir klar?",                     "layoutX": 1, "layoutY": 0 },
       { "index": 5, "key": "bottom", "label": "Unbewusst",      "prompt": "Was wirkt im Hintergrund?",             "layoutX": 1, "layoutY": 2 }
     ]
+  },
+  {
+    "id": "compass",
+    "name": "Kompass",
+    "description": "Gibt Orientierung in alle Richtungen – Wohin geht die Reise, was ist zu lassen und was kommt neu?",
+    "tags": ["orientierung", "standard"],
+    "positions": [
+      { "index": 1, "key": "center", "label": "Mitte",         "prompt": "Was ist der Kern der Situation?",         "layoutX": 1, "layoutY": 1 },
+      { "index": 2, "key": "north",  "label": "Norden – Ziel", "prompt": "Wohin führt dein Weg?",                   "layoutX": 1, "layoutY": 0 },
+      { "index": 3, "key": "east",   "label": "Osten – Neues", "prompt": "Was kommt auf dich zu? Welche Chance?",   "layoutX": 2, "layoutY": 1 },
+      { "index": 4, "key": "south",  "label": "Süden – Wurzel","prompt": "Was trägt dich? Woher kommst du?",         "layoutX": 1, "layoutY": 2 },
+      { "index": 5, "key": "west",   "label": "Westen – Loslassen", "prompt": "Was darfst du hinter dir lassen?",  "layoutX": 0, "layoutY": 1 }
+    ]
+  },
+  {
+    "id": "celtic-cross",
+    "name": "Keltisches Kreuz",
+    "description": "Die klassische 10-Karten-Legung für eine tiefe Analyse einer Frage oder Lebenssituation.",
+    "tags": ["klassisch", "tiefenanalyse", "fortgeschritten"],
+    "positions": [
+      { "index": 1,  "key": "situation",    "label": "Situation",         "prompt": "Was ist deine aktuelle Situation?",          "layoutX": 1, "layoutY": 1 },
+      { "index": 2,  "key": "challenge",    "label": "Herausforderung",   "prompt": "Was kreuzt deinen Weg?",                     "layoutX": 2, "layoutY": 1 },
+      { "index": 3,  "key": "foundation",   "label": "Fundament",         "prompt": "Was liegt dieser Situation zugrunde?",       "layoutX": 1, "layoutY": 2 },
+      { "index": 4,  "key": "past",         "label": "Vergangenheit",     "prompt": "Was liegt hinter dir?",                      "layoutX": 0, "layoutY": 1 },
+      { "index": 5,  "key": "crown",        "label": "Krone",             "prompt": "Was ist das beste mögliche Ergebnis?",       "layoutX": 1, "layoutY": 0 },
+      { "index": 6,  "key": "near-future",  "label": "Nahe Zukunft",      "prompt": "Was kommt als nächstes?",                    "layoutX": 3, "layoutY": 1 },
+      { "index": 7,  "key": "self",         "label": "Du selbst",         "prompt": "Wie siehst du dich in dieser Situation?",    "layoutX": 5, "layoutY": 3 },
+      { "index": 8,  "key": "environment",  "label": "Umfeld",            "prompt": "Was beeinflusst dich von außen?",            "layoutX": 5, "layoutY": 2 },
+      { "index": 9,  "key": "hopes-fears",  "label": "Hoffnungen & Ängste","prompt": "Was erhoffst oder befürchtest du?",         "layoutX": 5, "layoutY": 1 },
+      { "index": 10, "key": "outcome",      "label": "Ergebnis",          "prompt": "Wohin führt dieser Weg?",                    "layoutX": 5, "layoutY": 0 }
+    ]
+  },
+  {
+    "id": "love-oracle",
+    "name": "Liebesorakel",
+    "description": "Beleuchtet eine Beziehung oder Liebesfrage aus verschiedenen Blickwinkeln – Stärken, Hindernisse und Potenzial.",
+    "tags": ["liebe", "beziehung"],
+    "positions": [
+      { "index": 1, "key": "me",          "label": "Ich",               "prompt": "Was bringst du in die Beziehung ein?",          "layoutX": 0, "layoutY": 1 },
+      { "index": 2, "key": "you",         "label": "Gegenüber",         "prompt": "Was bringt dein Gegenüber ein?",                "layoutX": 2, "layoutY": 1 },
+      { "index": 3, "key": "bond",        "label": "Was verbindet",     "prompt": "Was hält euch zusammen?",                      "layoutX": 1, "layoutY": 1 },
+      { "index": 4, "key": "obstacle",    "label": "Hindernis",         "prompt": "Was steht zwischen euch?",                     "layoutX": 1, "layoutY": 2 },
+      { "index": 5, "key": "my-feeling",  "label": "Mein Gefühl",       "prompt": "Was trägt dein Herz gerade?",                  "layoutX": 0, "layoutY": 2 },
+      { "index": 6, "key": "their-feeling","label": "Ihr/Sein Gefühl",  "prompt": "Was trägt dein Gegenüber gerade?",             "layoutX": 2, "layoutY": 2 },
+      { "index": 7, "key": "potential",   "label": "Potenzial",         "prompt": "Was ist das Potenzial dieser Verbindung?",      "layoutX": 1, "layoutY": 0 }
+    ]
   }
 ]
 
