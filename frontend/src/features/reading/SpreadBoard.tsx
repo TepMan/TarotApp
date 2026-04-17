@@ -248,6 +248,13 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   }
 
   function commitQuerySelection(positionKey: string, rawQuery: string, availableCards: Card[]): boolean {
+    const trimmed = rawQuery.trim().toLowerCase()
+    const exactFromAllCards = cards.find((card) => card.name.toLowerCase() === trimmed)
+    if (exactFromAllCards) {
+      updateCard(positionKey, exactFromAllCards.name)
+      return true
+    }
+
     const resolvedCard = resolveCardFromQuery(rawQuery, availableCards)
     if (resolvedCard) {
       updateCard(positionKey, resolvedCard.name)
@@ -260,6 +267,23 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
   function updateCard(positionKey: string, cardName: string) {
     const orientation = selectionByPosition[positionKey]?.orientation ?? 'upright'
+
+    if (cardName) {
+      const cardUsage = findCardUsage(positionKey, cardName)
+      if (cardUsage) {
+        setSelectionErrorByPosition((current) => ({
+          ...current,
+          [positionKey]: `Diese Karte ist bereits in #${cardUsage.positionIndex} (${cardUsage.positionLabel}) gewählt.`,
+        }))
+        setInterpretationByPosition((current) => ({
+          ...current,
+          [positionKey]: { status: 'idle' },
+        }))
+
+        focusExistingCardPosition(cardUsage.usedKey)
+        return
+      }
+    }
 
     setSearchByPosition((current) => ({
       ...current,
@@ -280,21 +304,6 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
         ...current,
         [positionKey]: { status: 'idle' },
       }))
-      return
-    }
-
-    const cardUsage = findCardUsage(positionKey, cardName)
-    if (cardUsage) {
-      setSelectionErrorByPosition((current) => ({
-        ...current,
-        [positionKey]: `Diese Karte ist bereits in #${cardUsage.positionIndex} (${cardUsage.positionLabel}) gewählt.`,
-      }))
-      setInterpretationByPosition((current) => ({
-        ...current,
-        [positionKey]: { status: 'idle' },
-      }))
-
-      focusExistingCardPosition(cardUsage.usedKey)
       return
     }
 
