@@ -1,0 +1,149 @@
+.reading-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+}
+
+.reading-header {
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: var(--social-bg);
+}
+
+.reading-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.reading-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: left;
+  min-height: 140px;
+}
+
+.panel h2 {
+  margin: 0 0 6px;
+  font-size: 19px;
+}
+
+.panel-board {
+  min-height: 260px;
+}
+
+.panel-interpretation {
+  min-height: 220px;
+}
+
+@media (max-width: 900px) {
+  .reading-page {
+    padding: 16px;
+  }
+
+  .reading-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-board,
+  .panel-interpretation {
+    min-height: 160px;
+  }
+}
+
+.spread-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spread-selector-hint {
+  margin: 0;
+  font-size: 14px;
+}
+
+.spread-selector-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spread-option {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.spread-option:hover {
+  border-color: var(--accent-border);
+}
+
+.spread-option.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.spread-option strong {
+  color: var(--text-h);
+}
+
+.spread-option small {
+  opacity: 0.8;
+}
+
+.spread-selector-state {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spread-selector-state button {
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.selected-spread-preview {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--social-bg);
+  margin-bottom: 10px;
+}
+
+.selected-spread-preview p {
+  margin: 0 0 6px;
+}
+
+.selected-spread-preview p:last-child {
+  margin-bottom: 0;
+}
+
+.placeholder-note {
+  opacity: 0.8;
+  font-size: 14px;
+}

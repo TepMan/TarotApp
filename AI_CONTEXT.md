@@ -92,9 +92,11 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
 - `README.md` fuer das Gesamtprojekt ist vorhanden (Start, API-Uebersicht, Datendateien, CORS).
 - GitHub Action `.github/workflows/backend-tests.yml` laeuft auf Pushs und PRs auf `dev`, nur wenn `backend/**` geaendert wurde.
 - Frontend Schritt 1 ist umgesetzt: `frontend/src/types/tarot.ts` (DTOs) und `frontend/src/api/tarotApi.ts` (typsichere API-Funktionen fuer spreads/cards/interpretation).
+- Frontend Schritt 2 ist umgesetzt: Vite-Template ersetzt durch `ReadingPage`-Skelett (`frontend/src/pages/ReadingPage.tsx`) mit Platzhaltern fuer die naechsten Feature-Komponenten.
+- Frontend Schritt 3 ist umgesetzt: `SpreadSelector` laedt Legemuster aus der API, zeigt Loading/Error/Retry und setzt die Auswahl in `ReadingPage`.
 
 ## 6) Naechste pragmatische Schritte
-1. Frontend Schritt 2: App-Skelett (`ReadingPage`) statt Vite-Template aufsetzen.
+1. Frontend Schritt 4: `SpreadBoard` implementieren (Detail von `/api/spreads/{id}` grafisch darstellen).
 2. Optional: Service-/Repository-Tests gezielt ausbauen.
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
