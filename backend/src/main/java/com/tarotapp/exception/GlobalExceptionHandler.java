@@ -23,15 +23,17 @@ public class GlobalExceptionHandler {
             ResponseStatusException ex,
             HttpServletRequest request) {
 
-        HttpStatus status = HttpStatus.valueOf(ex.getStatusCode().value());
+        int statusCode = ex.getStatusCode().value();
+        HttpStatus status = HttpStatus.resolve(statusCode);
         String message = ex.getReason() != null && !ex.getReason().isBlank()
                 ? ex.getReason()
-                : status.getReasonPhrase();
+                : status != null ? status.getReasonPhrase() : "HTTP " + statusCode;
+        String error = status != null ? status.name() : "HTTP_" + statusCode;
 
-        return ResponseEntity.status(status)
+        return ResponseEntity.status(ex.getStatusCode())
                 .body(new ApiError(
-                        status.value(),
-                        status.name(),
+                        statusCode,
+                        error,
                         message,
                         request.getRequestURI()
                 ));
