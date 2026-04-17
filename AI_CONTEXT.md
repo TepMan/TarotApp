@@ -94,9 +94,10 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
 - Frontend Schritt 1 ist umgesetzt: `frontend/src/types/tarot.ts` (DTOs) und `frontend/src/api/tarotApi.ts` (typsichere API-Funktionen fuer spreads/cards/interpretation).
 - Frontend Schritt 2 ist umgesetzt: Vite-Template ersetzt durch `ReadingPage`-Skelett (`frontend/src/pages/ReadingPage.tsx`) mit Platzhaltern fuer die naechsten Feature-Komponenten.
 - Frontend Schritt 3 ist umgesetzt: `SpreadSelector` laedt Legemuster aus der API, zeigt Loading/Error/Retry und setzt die Auswahl in `ReadingPage`.
+- Frontend Schritt 4 ist umgesetzt: `SpreadBoard` laedt Detaildaten via `/api/spreads/{id}` und rendert Positionen grafisch ueber `layoutX/layoutY` (inkl. Loading/Error/Retry).
 
 ## 6) Naechste pragmatische Schritte
-1. Frontend Schritt 4: `SpreadBoard` implementieren (Detail von `/api/spreads/{id}` grafisch darstellen).
+1. Frontend Schritt 5: `PositionEditor` implementieren (pro Position Karte + Orientierung waehlen).
 2. Optional: Service-/Repository-Tests gezielt ausbauen.
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 

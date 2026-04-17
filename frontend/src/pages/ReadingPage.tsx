@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { SpreadBoard } from '../features/reading/SpreadBoard'
 import { SpreadSelector } from '../features/reading/SpreadSelector'
 import type { SpreadSummary } from '../types/tarot'
 import './ReadingPage.css'
@@ -27,18 +28,7 @@ export function ReadingPage() {
 
         <article className="panel panel-board" aria-label="Legemuster-Board">
           <h2>2) Legemuster-Board</h2>
-          {selectedSpread ? (
-            <div className="selected-spread-preview">
-              <p>
-                <strong>Aktuell gewaehlt:</strong> {selectedSpread.name}
-              </p>
-              <p>{selectedSpread.description}</p>
-              <p>{selectedSpread.positionCount} Positionen</p>
-            </div>
-          ) : (
-            <p>Waehle zuerst ein Legemuster aus.</p>
-          )}
-          <p className="placeholder-note">SpreadBoard kommt in Schritt 4.</p>
+          <SpreadBoard spreadId={selectedSpread?.id} spreadName={selectedSpread?.name} />
         </article>
 
         <article className="panel panel-editor" aria-label="Positions-Editor">
