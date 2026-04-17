@@ -15,11 +15,38 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   const [selectionByPosition, setSelectionByPosition] = useState<
     Record<string, { cardName: string; orientation: Orientation }>
   >({})
+  const [searchByPosition, setSearchByPosition] = useState<Record<string, string>>({})
+  const [expandedByPosition, setExpandedByPosition] = useState<Record<string, boolean>>({})
+  const [selectionErrorByPosition, setSelectionErrorByPosition] = useState<Record<string, string>>({})
+  const [highlightedPositionKey, setHighlightedPositionKey] = useState<string | null>(null)
   const [interpretationByPosition, setInterpretationByPosition] = useState<
     Record<string, { status: 'idle' | 'loading' | 'success' | 'error'; data?: InterpretationResponse; error?: string }>
   >({})
   const interpretationRequestCounter = useRef(0)
   const latestInterpretationRequestByPosition = useRef<Record<string, number>>({})
+
+  function getStorageKey(id: string): string {
+    return `tarot.reading.v1.${id}`
+  }
+
+  function readPersistedState(id: string): {
+    selections?: Record<string, { cardName: string; orientation: Orientation }>
+    expanded?: Record<string, boolean>
+  } {
+    try {
+      const raw = localStorage.getItem(getStorageKey(id))
+      if (!raw) {
+        return {}
+      }
+      const parsed = JSON.parse(raw) as {
+        selections?: Record<string, { cardName: string; orientation: Orientation }>
+        expanded?: Record<string, boolean>
+      }
+      return parsed ?? {}
+    } catch {
+      return {}
+    }
+  }
 
   async function loadSpreadDetail(id: string) {
     setIsLoading(true)
@@ -27,18 +54,39 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
     try {
       const [detail, allCards] = await Promise.all([getSpreadById(id), getCards()])
+      const persisted = readPersistedState(id)
+
       setSpread(detail)
       setCards(allCards)
       setSelectionByPosition((current) => {
         const next: Record<string, { cardName: string; orientation: Orientation }> = {}
         for (const position of detail.positions) {
+          const persistedSelection = persisted.selections?.[position.key]
           next[position.key] = {
-            cardName: current[position.key]?.cardName ?? '',
-            orientation: current[position.key]?.orientation ?? 'upright',
+            cardName: persistedSelection?.cardName ?? current[position.key]?.cardName ?? '',
+            orientation:
+              persistedSelection?.orientation ?? current[position.key]?.orientation ?? 'upright',
           }
         }
         return next
       })
+
+      setSearchByPosition(() => {
+        const next: Record<string, string> = {}
+        for (const position of detail.positions) {
+          next[position.key] = ''
+        }
+        return next
+      })
+
+      setExpandedByPosition(() => {
+        const next: Record<string, boolean> = {}
+        for (const position of detail.positions) {
+          next[position.key] = persisted.expanded?.[position.key] ?? true
+        }
+        return next
+      })
+
       setInterpretationByPosition((current) => {
         const next: Record<
           string,
@@ -49,6 +97,13 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
         }
         return next
       })
+
+      for (const position of detail.positions) {
+        const restored = persisted.selections?.[position.key]
+        if (restored?.cardName) {
+          void loadInterpretationForPosition(position.key, restored.cardName, restored.orientation)
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Legemuster-Detail konnte nicht geladen werden.')
       setSpread(null)
@@ -97,8 +152,119 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
     }
   }
 
+  function isCardSelectedElsewhere(positionKey: string, cardName: string): boolean {
+    return Object.entries(selectionByPosition).some(
+      ([key, selection]) => key !== positionKey && selection.cardName === cardName,
+    )
+  }
+
+  function findCardUsage(
+    positionKey: string,
+    cardName: string,
+  ): { usedKey: string; positionIndex: number; positionLabel: string } | null {
+    if (!spread) {
+      return null
+    }
+
+    const used = Object.entries(selectionByPosition).find(
+      ([key, selection]) => key !== positionKey && selection.cardName === cardName,
+    )
+
+    if (!used) {
+      return null
+    }
+
+    const [usedKey] = used
+    const usedPosition = spread.positions.find((position) => position.key === usedKey)
+    if (!usedPosition) {
+      return null
+    }
+
+    return {
+      usedKey,
+      positionIndex: usedPosition.index,
+      positionLabel: usedPosition.label,
+    }
+  }
+
+  function focusExistingCardPosition(targetKey: string) {
+    const target = document.getElementById(`spread-position-${targetKey}`)
+    if (!target) {
+      return
+    }
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    setHighlightedPositionKey(targetKey)
+
+    window.setTimeout(() => {
+      setHighlightedPositionKey((current) => (current === targetKey ? null : current))
+    }, 1600)
+  }
+
+  function resolveCardFromQuery(rawQuery: string, availableCards: Card[]): Card | null {
+    const query = rawQuery.trim().toLowerCase()
+    if (!query) {
+      return null
+    }
+
+    const exact = availableCards.find((card) => card.name.toLowerCase() === query)
+    if (exact) {
+      return exact
+    }
+
+    const partial = availableCards.filter(
+      (card) =>
+        card.name.toLowerCase().includes(query) ||
+        card.number.toLowerCase().includes(query) ||
+        card.suit.toLowerCase().includes(query),
+    )
+
+    return partial.length === 1 ? partial[0] : null
+  }
+
+  function setQueryValidationError(positionKey: string, rawQuery: string) {
+    const trimmed = rawQuery.trim()
+    if (!trimmed) {
+      setSelectionErrorByPosition((current) => ({
+        ...current,
+        [positionKey]: '',
+      }))
+      return
+    }
+
+    const hasAnyMatch = cards.some(
+      (card) =>
+        card.name.toLowerCase().includes(trimmed.toLowerCase()) ||
+        card.number.toLowerCase().includes(trimmed.toLowerCase()) ||
+        card.suit.toLowerCase().includes(trimmed.toLowerCase()),
+    )
+
+    setSelectionErrorByPosition((current) => ({
+      ...current,
+      [positionKey]: hasAnyMatch
+        ? 'Bitte Treffer präzisieren oder Vorschlag auswählen.'
+        : 'Keine passende Karte gefunden.',
+    }))
+  }
+
+  function commitQuerySelection(positionKey: string, rawQuery: string, availableCards: Card[]): boolean {
+    const resolvedCard = resolveCardFromQuery(rawQuery, availableCards)
+    if (resolvedCard) {
+      updateCard(positionKey, resolvedCard.name)
+      return true
+    }
+
+    setQueryValidationError(positionKey, rawQuery)
+    return false
+  }
+
   function updateCard(positionKey: string, cardName: string) {
     const orientation = selectionByPosition[positionKey]?.orientation ?? 'upright'
+
+    setSearchByPosition((current) => ({
+      ...current,
+      [positionKey]: '',
+    }))
 
     setSelectionByPosition((current) => ({
       ...current,
@@ -109,12 +275,30 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
     }))
 
     if (!cardName) {
+      setSelectionErrorByPosition((current) => ({ ...current, [positionKey]: '' }))
       setInterpretationByPosition((current) => ({
         ...current,
         [positionKey]: { status: 'idle' },
       }))
       return
     }
+
+    const cardUsage = findCardUsage(positionKey, cardName)
+    if (cardUsage) {
+      setSelectionErrorByPosition((current) => ({
+        ...current,
+        [positionKey]: `Diese Karte ist bereits in #${cardUsage.positionIndex} (${cardUsage.positionLabel}) gewählt.`,
+      }))
+      setInterpretationByPosition((current) => ({
+        ...current,
+        [positionKey]: { status: 'idle' },
+      }))
+
+      focusExistingCardPosition(cardUsage.usedKey)
+      return
+    }
+
+    setSelectionErrorByPosition((current) => ({ ...current, [positionKey]: '' }))
 
     void loadInterpretationForPosition(positionKey, cardName, orientation)
   }
@@ -146,6 +330,9 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
       setSpread(null)
       setCards([])
       setSelectionByPosition({})
+      setSearchByPosition({})
+      setExpandedByPosition({})
+      setSelectionErrorByPosition({})
       setInterpretationByPosition({})
       setError(null)
       setIsLoading(false)
@@ -154,6 +341,36 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
     void loadSpreadDetail(spreadId)
   }, [spreadId])
+
+  useEffect(() => {
+    if (!spreadId || !spread) {
+      return
+    }
+
+    const positionKeys = new Set(spread.positions.map((position) => position.key))
+    const persistedSelections: Record<string, { cardName: string; orientation: Orientation }> = {}
+    const persistedExpanded: Record<string, boolean> = {}
+
+    for (const [positionKey, selection] of Object.entries(selectionByPosition)) {
+      if (positionKeys.has(positionKey) && selection.cardName) {
+        persistedSelections[positionKey] = selection
+      }
+    }
+
+    for (const [positionKey, expanded] of Object.entries(expandedByPosition)) {
+      if (positionKeys.has(positionKey)) {
+        persistedExpanded[positionKey] = expanded
+      }
+    }
+
+    localStorage.setItem(
+      getStorageKey(spreadId),
+      JSON.stringify({
+        selections: persistedSelections,
+        expanded: persistedExpanded,
+      }),
+    )
+  }, [expandedByPosition, selectionByPosition, spread, spreadId])
 
   const boardDimensions = useMemo(() => {
     if (!spread || spread.positions.length === 0) {
@@ -218,12 +435,38 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
             cardName: '',
             orientation: 'upright' as Orientation,
           }
+          const queryValue = searchByPosition[position.key] ?? ''
+          const query = queryValue.trim().toLowerCase()
+          const availableCards = cards.filter((card) => {
+            return !isCardSelectedElsewhere(position.key, card.name) || selection.cardName === card.name
+          })
+          const matchingCount =
+            query.length === 0
+              ? availableCards.length
+              : availableCards.filter(
+                  (card) =>
+                    card.name.toLowerCase().includes(query) ||
+                    card.number.toLowerCase().includes(query) ||
+                    card.suit.toLowerCase().includes(query),
+                ).length
+          const hasExactMatch =
+            query.length > 0 &&
+            availableCards.some((card) => card.name.toLowerCase() === query)
+          const matchesAnyCardByName =
+            query.length > 0 && cards.some((card) => card.name.toLowerCase() === query)
+          const isDuplicateExactMatch = matchesAnyCardByName && !hasExactMatch
+          const autoListId = `card-suggestions-${position.key}`
+          const isExpanded = expandedByPosition[position.key] ?? true
+          const selectionError = selectionErrorByPosition[position.key]
           const interpretation = interpretationByPosition[position.key] ?? { status: 'idle' as const }
 
           return (
             <div
               key={position.key}
-              className="spread-position-tile"
+              id={`spread-position-${position.key}`}
+              className={`spread-position-tile ${
+                highlightedPositionKey === position.key ? 'is-highlighted' : ''
+              }`}
               style={{
                 gridColumn: position.layoutX + 1,
                 gridRow: position.layoutY + 1,
@@ -237,22 +480,97 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
               <label className="tile-control">
                 Karte
-                <select
-                  value={selection.cardName}
-                  onChange={(event) => updateCard(position.key, event.target.value)}
-                >
-                  <option value="">-- Karte auswählen --</option>
-                  {cards.map((card) => (
+                <input
+                  type="text"
+                  className="tile-search"
+                  list={autoListId}
+                  placeholder="Karte suchen und auswählen..."
+                  value={queryValue}
+                  onChange={(event) => {
+                    const value = event.target.value
+                    setSearchByPosition((current) => ({
+                      ...current,
+                      [position.key]: value,
+                    }))
+
+                    const trimmed = value.trim()
+                    if (!trimmed) {
+                      setSelectionErrorByPosition((current) => ({
+                        ...current,
+                        [position.key]: '',
+                      }))
+                      return
+                    }
+
+                    const exactCard = cards.find(
+                      (card) => card.name.toLowerCase() === trimmed.toLowerCase(),
+                    )
+                    if (exactCard) {
+                      updateCard(position.key, exactCard.name)
+                    } else {
+                      setSelectionErrorByPosition((current) => ({
+                        ...current,
+                        [position.key]: '',
+                      }))
+                    }
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key !== 'Enter' && event.key !== 'Tab') {
+                      return
+                    }
+
+                    const didCommit = commitQuerySelection(position.key, queryValue, availableCards)
+                    if (didCommit) {
+                      return
+                    }
+
+                    if (event.key === 'Enter') {
+                      event.preventDefault()
+                    }
+                  }}
+                  onBlur={() => {
+                    void commitQuerySelection(position.key, queryValue, availableCards)
+                  }}
+                />
+                <datalist id={autoListId}>
+                  {availableCards.map((card) => (
                     <option key={card.name} value={card.name}>
-                      {card.name} ({card.number})
+                      {card.number} - {card.suit}
                     </option>
                   ))}
-                </select>
+                </datalist>
               </label>
+
+              {selectionError ? <p className="tile-error">{selectionError}</p> : null}
+
+              {isDuplicateExactMatch ? (
+                <p className="tile-error">Diese Karte ist bereits in einer anderen Position gewählt.</p>
+              ) : null}
+
+              {query.length > 0 && matchingCount === 0 ? (
+                <p className="tile-empty">Keine Karten zum Suchbegriff gefunden.</p>
+              ) : null}
+
+              {query.length > 0 && matchingCount > 0 && !hasExactMatch ? (
+                <p className="tile-empty">Bitte eine Karte aus den Vorschlägen auswählen.</p>
+              ) : null}
 
               {selection.cardName ? (
                 <div className="tile-orientation-row">
-                  <span>{selection.orientation === 'upright' ? 'Aufrecht' : 'Umgekehrt'}</span>
+                  <span>
+                    Gewählt: {selection.cardName} ·{' '}
+                    {selection.orientation === 'upright' ? 'Aufrecht' : 'Umgekehrt'}
+                  </span>
+                  <div className="tile-orientation-actions">
+                    <button
+                      type="button"
+                      className="clear-selection-button"
+                      onClick={() => updateCard(position.key, '')}
+                      title="Kartenauswahl löschen"
+                      aria-label="Kartenauswahl löschen"
+                    >
+                      ×
+                    </button>
                   <button
                     type="button"
                     className="orientation-toggle"
@@ -262,6 +580,7 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
                   >
                     {selection.orientation === 'upright' ? '↓' : '↑'}
                   </button>
+                  </div>
                 </div>
               ) : null}
 
@@ -272,20 +591,38 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
               {interpretation.status === 'success' && interpretation.data ? (
                 <div className="tile-interpretation">
-                  {interpretation.data.imagePath ? (
-                    <img
-                      src={`${import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080'}${interpretation.data.imagePath}`}
-                      alt={`Karte ${interpretation.data.name}`}
-                      className={`tile-image ${selection.orientation === 'reversed' ? 'is-reversed' : ''}`}
-                      loading="lazy"
-                    />
+                  <button
+                    type="button"
+                    className="interpretation-toggle"
+                    onClick={() =>
+                      setExpandedByPosition((current) => ({
+                        ...current,
+                        [position.key]: !isExpanded,
+                      }))
+                    }
+                    aria-label="Interpretation ein- oder ausklappen"
+                  >
+                    {isExpanded ? 'Interpretation einklappen ▲' : 'Interpretation ausklappen ▼'}
+                  </button>
+
+                  {isExpanded ? (
+                    <>
+                      {interpretation.data.imagePath ? (
+                        <img
+                          src={`${import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080'}${interpretation.data.imagePath}`}
+                          alt={`Karte ${interpretation.data.name}`}
+                          className={`tile-image ${selection.orientation === 'reversed' ? 'is-reversed' : ''}`}
+                          loading="lazy"
+                        />
+                      ) : null}
+                      <p>
+                        <strong>Kernbotschaft:</strong> {interpretation.data.kernbotschaft}
+                      </p>
+                      <p>
+                        <strong>Psychologie:</strong> {interpretation.data.psychologie}
+                      </p>
+                    </>
                   ) : null}
-                  <p>
-                    <strong>Kernbotschaft:</strong> {interpretation.data.kernbotschaft}
-                  </p>
-                  <p>
-                    <strong>Psychologie:</strong> {interpretation.data.psychologie}
-                  </p>
                 </div>
               ) : null}
             </div>
