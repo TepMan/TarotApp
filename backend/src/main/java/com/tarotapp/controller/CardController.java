@@ -7,8 +7,10 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -18,13 +20,11 @@ import java.util.List;
  * {@code @RestController} → Kombiniert {@code @Controller} + {@code @ResponseBody}
  * (gibt automatisch JSON zurück, kein View-Rendering).
  * {@code @RequestMapping} → Basis-Pfad für alle Methoden in dieser Klasse.
- * {@code @CrossOrigin} → Erlaubt Frontend (React auf Port 5173) den Zugriff
- * (wie CORS in ASP.NET Core Program.cs konfigurieren).
+ * CORS wird zentral in `WebConfig` konfiguriert.
  * {@code @Tag} → Swagger UI Gruppierung (wie [ApiExplorerSettings] in ASP.NET Core).
  */
 @RestController
 @RequestMapping("/api/cards")
-@CrossOrigin(origins = "*")
 @Tag(name = "Karten", description = "Zugriff auf alle 78 Tarot-Karten mit Beschreibungen und Bildzuordnungen")
 public class CardController {
 
@@ -41,7 +41,7 @@ public class CardController {
      */
     @Operation(
         summary = "Karten abrufen",
-        description = "Gibt alle Karten zurück. Optionale Filter: 'suit' für eine Gruppe (z.B. 'Große Arkana', 'Kelche') oder 'search' für eine Namenssuche."
+        description = "Gibt alle Karten zurück. Optionale Filter: genau einer von 'suit' (z.B. 'Große Arkana', 'Kelche') oder 'search' (Namenssuche)."
     )
     @GetMapping
     public List<Card> getCards(
@@ -50,10 +50,20 @@ public class CardController {
             @Parameter(description = "Volltextsuche im Kartennamen, z.B. 'Narr'")
             @RequestParam(required = false) String search) {
 
-        if (search != null && !search.isBlank()) {
+        boolean hasSuit = suit != null && !suit.isBlank();
+        boolean hasSearch = search != null && !search.isBlank();
+
+        if (hasSuit && hasSearch) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Bitte genau einen Filter verwenden: entweder 'suit' oder 'search'."
+            );
+        }
+
+        if (hasSearch) {
             return cardService.searchCards(search);
         }
-        if (suit != null && !suit.isBlank()) {
+        if (hasSuit) {
             return cardService.getCardsBySuit(suit);
         }
         return cardService.getAllCards();

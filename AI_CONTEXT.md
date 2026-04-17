@@ -6,6 +6,7 @@ Zweck: Diese Datei haelt den Ausbildungsplan und den Projektkontext fest, damit 
 ## 1) Zielbild
 Erfahrener C#/.NET Entwickler lernt Java + Spring durch Bauen einer Tarot-App.
 Schwerpunkt: REST API Qualitaet, Spring-Grundlagen, Testing, Persistenz, Betrieb.
+Produktziel: Eine Arbeitshilfe fuer physisches Tarot-Legen - Legemuster waehlen, im Muster gezogene Karten auswaehlen und zu jeder Karte schnell die passenden Informationen sehen.
 
 ## 2) Lernpfad (7 Wochen)
 
@@ -62,17 +63,29 @@ Datei: backend/src/main/java/com/tarotapp/controller/CardController.java
 - GET /api/cards/{name}
 - Swagger Annotationen sind vorhanden
 
-## 5) Naechste pragmatische Schritte
-1. Zentrale Fehlerbehandlung mit @ControllerAdvice einfuehren.
-2. Validation fuer Query-Input vorbereiten.
-3. Erste Web-Layer Tests fuer CardController schreiben.
+## 5) Aktueller Umsetzungsstand
+- Projektstruktur fuer Backend/Frontend ist erstellt.
+- Erste API-Implementierung ist vorhanden (CardController + Service-Flows).
+- Swagger/OpenAPI ist eingebunden.
+- IDE Run/Debug Setup ist eingerichtet.
+- Request-Flow fuer die Karten-API wurde analysiert: `TarotAppApplication` -> `CardController` -> `CardService` -> `CardRepository` -> `JsonDataLoader` -> JSON-Dateien.
+- CORS ist zentral ueber `WebConfig` konfiguriert (`@CrossOrigin` im Controller entfernt).
+- Filterstrategie vereinfacht: In `GET /api/cards` darf genau ein Filter gesetzt werden (`suit` oder `search`), bei mehreren folgt `400 Bad Request`.
+- Web-Layer-Tests fuer den Controller sind vorhanden (`CardControllerWebMvcTest`): Happy Paths (ohne Filter, suit, search), 400 bei doppeltem Filter und Verhalten bei leeren Parametern.
 
-## 6) Kontext im neuen Chat wiederherstellen (Copy/Paste Prompt)
+## 6) Naechste pragmatische Schritte
+1. Als naechste Lernuebung optional einen dritten einfachen Einzel-Filter (`number`) analog zu `suit/search` ergaenzen.
+2. Error-Handling vereinheitlichen (z.B. `@ControllerAdvice` mit konsistentem Error-JSON).
+3. Danach Service-/Repository-Tests gezielt ausbauen.
+
+## 7) Kontext im neuen Chat wiederherstellen (Copy/Paste Prompt)
 "Nutze bitte den Kontext aus `AI_CONTEXT.md` als Grundlage.
 Ich bin erfahrener C# Entwickler und lerne Java/Spring mit der TarotApp.
-Bitte starte bei Woche X und gib mir die naechsten kleinen Lernschritte mit Fokus auf Praxis im bestehenden Projekt."
+Aktueller Stand: Projektstruktur + erste API + Swagger + IDE Debug Setup stehen.
+Produktziel: Legemuster auswaehlen, gezogene Karten im Muster erfassen und Karteninfos anzeigen.
+Bitte starte beim naechsten kleinen Schritt (Code-Verstaendnis und dann neuer Filter)."
 
-## 7) Pflegehinweis
+## 8) Pflegehinweis
 Nach jeder Session kurz aktualisieren:
 - Was wurde gebaut?
 - Was ist als naechstes dran?
