@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --text: #d5ddd4;
+  --text-h: #f5f8f3;
+  --bg: #1f2521;
+  --border: #4c5450;
+  --code-bg: #262c28;
+  --accent: #8fd19e;
+  --accent-bg: rgba(143, 209, 158, 0.16);
+  --accent-border: rgba(143, 209, 158, 0.55);
+  --social-bg: #2b3130;
+  --panel-bg: #2b3130;
+  --shadow:
+    rgba(0, 0, 0, 0.35) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+  --sans: 'Palatino Linotype', 'Book Antiqua', Garamond, Georgia, serif;
+  --heading: 'Cinzel', 'Palatino Linotype', Garamond, Georgia, serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid rgba(48, 54, 50, 0.7);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.38) 100%),
+    linear-gradient(135deg, #8fc18f 0%, #b79265 48%, #9f9f9f 100%);
+  background-attachment: fixed;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
+
+select option {
+  background: #2b3130;
+  color: #f5f8f3;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

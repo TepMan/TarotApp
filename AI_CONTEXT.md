@@ -88,12 +88,24 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
   - Vordefinierte Muster: `three-card`, `cross-5`
   - WebMvc-Tests: `SpreadControllerWebMvcTest` (Liste, Detail, 404)
 - `GET /api/cards/{name}/interpretation` liefert orientierungsabhaengige Karten-Interpretation (`InterpretationResponse`): kernbotschaft, psychologie (aufrecht/umgekehrt), anwendungsfelder, archetyp, imageFile.
+- `imagePath` in Card/Interpretation ist auf den oeffentlichen Resource-Pfad normalisiert (`/images/{file}`), damit Kartenbilder im Frontend korrekt geladen werden.
+- `WebConfig` registriert mehrere moegliche statische Bildpfade (`./static/...` und `../static/...`), damit `/images/**` unabhaengig vom Startverzeichnis der App funktioniert.
 - Backend-Stand ist fuer das beschriebene Produktziel vollstaendig.
 - `README.md` fuer das Gesamtprojekt ist vorhanden (Start, API-Uebersicht, Datendateien, CORS).
 - GitHub Action `.github/workflows/backend-tests.yml` laeuft auf Pushs und PRs auf `dev`, nur wenn `backend/**` geaendert wurde.
+- Frontend Schritt 1 ist umgesetzt: `frontend/src/types/tarot.ts` (DTOs) und `frontend/src/api/tarotApi.ts` (typsichere API-Funktionen fuer spreads/cards/interpretation).
+- Frontend Schritt 2 ist umgesetzt: Vite-Template ersetzt durch `ReadingPage`-Skelett (`frontend/src/pages/ReadingPage.tsx`) mit Platzhaltern fuer die naechsten Feature-Komponenten.
+- Frontend Schritt 3 ist umgesetzt: `SpreadSelector` laedt Legemuster aus der API, zeigt Loading/Error/Retry und setzt die Auswahl in `ReadingPage`.
+- Frontend Schritt 4 ist umgesetzt: `SpreadBoard` laedt Detaildaten via `/api/spreads/{id}` und rendert Positionen grafisch ueber `layoutX/layoutY` (inkl. Loading/Error/Retry).
+- Frontend Schritt 5 ist umgesetzt: `PositionEditor` laedt Positionen + Karten, erlaubt pro Position die Auswahl von Karte und Orientierung und meldet die Belegung an `ReadingPage`.
+- Frontend Schritt 6 ist umgesetzt: `InterpretationPanel` laedt pro belegter Position die Interpretation via `/api/cards/{name}/interpretation` und zeigt Kernbotschaft/Psychologie/Archetyp inkl. Bild an.
+- Frontend-Feinschliff (Schritt 1-3) ist umgesetzt: Branding auf "TepMan's Tarot App", zentrierte Legemuster-Auswahl als Dropdown (Default `three-card`) und neue Seitenstruktur mit Beschreibung oberhalb des prominenten Boards.
+- Frontend-Feinschliff (Board-zentrierter Flow) ist umgesetzt: Kartenwahl + Orientierung direkt in den Board-Kacheln, Bildrotation bei umgekehrter Orientierung und Interpretation pro Kachel.
+- Frontend-UX erweitert: Kartensuche je Kachel, ein-/ausklappbare Interpretation und Persistenz der Legung pro Legemuster in `localStorage`.
+- Karten koennen im aktuellen Legemuster nur einmal gewaehlt werden (Duplikat-Schutz im `SpreadBoard`, inklusive Hinweis im UI).
 
 ## 6) Naechste pragmatische Schritte
-1. Frontend-Entwicklung starten (React/TypeScript).
+1. Optionaler Frontend-Feinschliff: Performance optimieren (Interpretations-Cache card+orientation, Lazy-Loading fuer große Boards).
 2. Optional: Service-/Repository-Tests gezielt ausbauen.
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
