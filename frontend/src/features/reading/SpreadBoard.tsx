@@ -415,13 +415,6 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
 
   return (
     <div className="spread-board-wrap">
-      <div className="selected-spread-preview">
-        <p>
-          <strong>{spread.name}</strong>
-        </p>
-        <p>{spread.description}</p>
-        <p>{spread.positions.length} Positionen</p>
-      </div>
 
       <div
         className="spread-board-grid"

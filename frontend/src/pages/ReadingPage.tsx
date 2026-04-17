@@ -28,7 +28,6 @@ export function ReadingPage() {
 
       {selectedSpread ? (
         <section className="selected-spread-description" aria-label="Legemuster-Beschreibung">
-          <h2>{selectedSpread.name}</h2>
           <p>{selectedSpread.description}</p>
         </section>
       ) : null}
