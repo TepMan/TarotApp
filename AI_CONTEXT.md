@@ -89,6 +89,8 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
   - WebMvc-Tests: `SpreadControllerWebMvcTest` (Liste, Detail, 404)
 - `GET /api/cards/{name}/interpretation` liefert orientierungsabhaengige Karten-Interpretation (`InterpretationResponse`): kernbotschaft, psychologie (aufrecht/umgekehrt), anwendungsfelder, archetyp, imageFile.
 - Backend-Stand ist fuer das beschriebene Produktziel vollstaendig.
+- `README.md` fuer das Gesamtprojekt ist vorhanden (Start, API-Uebersicht, Datendateien, CORS).
+- GitHub Action `.github/workflows/backend-tests.yml` laeuft auf Pushs und PRs auf `dev`, nur wenn `backend/**` geaendert wurde.
 
 ## 6) Naechste pragmatische Schritte
 1. Frontend-Entwicklung starten (React/TypeScript).
