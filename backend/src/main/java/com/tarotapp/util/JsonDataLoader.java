@@ -18,9 +18,8 @@ import java.util.stream.Collectors;
 
 /**
  * Lädt die JSON-Datendateien beim Start der Anwendung.
- *
- * @Component  → Spring registriert diese Klasse als Bean (wie [Service] in C#)
- * @PostConstruct → Methode wird nach dem Dependency-Injection aufgerufen
+ * Component  → Spring registriert diese Klasse als Bean (wie [Service] in C#)
+ * PostConstruct → Methode wird nach dem Dependency-Injection aufgerufen
  *                  (wie ein Konstruktor, aber Spring hat bereits alle Abhängigkeiten gesetzt)
  */
 @Component
@@ -72,7 +71,6 @@ public class JsonDataLoader {
 
     /**
      * Verknüpft jede Karte mit ihrer Bildzuordnung anhand des deutschen Namens.
-     *
      * Java Streams sind das Äquivalent zu LINQ in C#:
      *   imageAssertions.stream()           →  imageAssertions.AsEnumerable()
      *   .collect(Collectors.toMap(...))    →  .ToDictionary(...)
@@ -89,7 +87,8 @@ public class JsonDataLoader {
             ImageAssertion assertion = imageMap.get(card.getName());
             if (assertion != null) {
                 card.setImageFile(assertion.getImageFile());
-                card.setImagePath(assertion.getImagePath());
+                // Liefert den oeffentlichen URL-Pfad, den WebConfig unter /images/** bereitstellt.
+                card.setImagePath("/images/" + assertion.getImageFile());
             } else {
                 logger.warn("⚠️ Kein Bild gefunden für Karte: '{}'", card.getName());
             }

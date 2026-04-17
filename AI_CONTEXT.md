@@ -88,6 +88,8 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
   - Vordefinierte Muster: `three-card`, `cross-5`
   - WebMvc-Tests: `SpreadControllerWebMvcTest` (Liste, Detail, 404)
 - `GET /api/cards/{name}/interpretation` liefert orientierungsabhaengige Karten-Interpretation (`InterpretationResponse`): kernbotschaft, psychologie (aufrecht/umgekehrt), anwendungsfelder, archetyp, imageFile.
+- `imagePath` in Card/Interpretation ist auf den oeffentlichen Resource-Pfad normalisiert (`/images/{file}`), damit Kartenbilder im Frontend korrekt geladen werden.
+- `WebConfig` registriert mehrere moegliche statische Bildpfade (`./static/...` und `../static/...`), damit `/images/**` unabhaengig vom Startverzeichnis der App funktioniert.
 - Backend-Stand ist fuer das beschriebene Produktziel vollstaendig.
 - `README.md` fuer das Gesamtprojekt ist vorhanden (Start, API-Uebersicht, Datendateien, CORS).
 - GitHub Action `.github/workflows/backend-tests.yml` laeuft auf Pushs und PRs auf `dev`, nur wenn `backend/**` geaendert wurde.
