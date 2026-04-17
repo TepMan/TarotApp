@@ -70,13 +70,17 @@ Datei: backend/src/main/java/com/tarotapp/controller/CardController.java
 - IDE Run/Debug Setup ist eingerichtet.
 - Request-Flow fuer die Karten-API wurde analysiert: `TarotAppApplication` -> `CardController` -> `CardService` -> `CardRepository` -> `JsonDataLoader` -> JSON-Dateien.
 - CORS ist zentral ueber `WebConfig` konfiguriert (`@CrossOrigin` im Controller entfernt).
-- Filterstrategie vereinfacht: In `GET /api/cards` darf genau ein Filter gesetzt werden (`suit` oder `search`), bei mehreren folgt `400 Bad Request`.
-- Web-Layer-Tests fuer den Controller sind vorhanden (`CardControllerWebMvcTest`): Happy Paths (ohne Filter, suit, search), 400 bei doppeltem Filter und Verhalten bei leeren Parametern.
+- Filterstrategie vereinfacht: In `GET /api/cards` darf genau ein Filter gesetzt werden (`suit`, `search` oder `number`), bei mehreren folgt `400 Bad Request`.
+- Web-Layer-Tests fuer den Controller sind vorhanden (`CardControllerWebMvcTest`): Happy Paths (ohne Filter, suit, search, number), 400 bei doppeltem Filter und Verhalten bei leeren Parametern.
+- Test-Standard festgelegt: In Spring MVC Tests `@MockitoBean` verwenden, nicht das deprecatede `@MockBean`.
+- Globales Error-Handling ist eingefuehrt: `@RestControllerAdvice` liefert konsistentes Error-JSON mit `status`, `error`, `message`, `path` fuer 400/404/500.
+- `GET /api/cards/{name}` nutzt fuer unbekannte Karten jetzt ebenfalls das zentrale Error-JSON (404 statt leerem Body).
+- OpenAPI/Swagger dokumentiert die Error-Responses jetzt explizit (400/404/500) mit `ApiError`-Schema.
 
 ## 6) Naechste pragmatische Schritte
-1. Als naechste Lernuebung optional einen dritten einfachen Einzel-Filter (`number`) analog zu `suit/search` ergaenzen.
-2. Error-Handling vereinheitlichen (z.B. `@ControllerAdvice` mit konsistentem Error-JSON).
-3. Danach Service-/Repository-Tests gezielt ausbauen.
+1. Service-/Repository-Tests gezielt ausbauen.
+2. Danach das erste API-Modell fuer Legemuster/Positionen entwerfen.
+3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
 ## 7) Kontext im neuen Chat wiederherstellen (Copy/Paste Prompt)
 "Nutze bitte den Kontext aus `AI_CONTEXT.md` als Grundlage.

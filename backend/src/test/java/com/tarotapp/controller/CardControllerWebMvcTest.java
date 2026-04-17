@@ -5,10 +5,12 @@ import com.tarotapp.service.CardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.verify;
@@ -33,9 +35,71 @@ class CardControllerWebMvcTest {
         mockMvc.perform(get("/api/cards")
                         .param("suit", "Kelche")
                         .param("search", "Narr"))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.error").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$.message").value("Bitte genau einen Filter verwenden: 'suit', 'search' oder 'number'."))
+                .andExpect(jsonPath("$.path").value("/api/cards"));
 
         verifyNoInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenSuitAndNumberAreProvided() throws Exception {
+        mockMvc.perform(get("/api/cards")
+                        .param("suit", "Kelche")
+                        .param("number", "1"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.error").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$.message").value("Bitte genau einen Filter verwenden: 'suit', 'search' oder 'number'."))
+                .andExpect(jsonPath("$.path").value("/api/cards"));
+
+        verifyNoInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenSearchAndNumberAreProvided() throws Exception {
+        mockMvc.perform(get("/api/cards")
+                        .param("search", "Narr")
+                        .param("number", "0"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.error").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$.message").value("Bitte genau einen Filter verwenden: 'suit', 'search' oder 'number'."))
+                .andExpect(jsonPath("$.path").value("/api/cards"));
+
+        verifyNoInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnNotFoundErrorJsonWhenCardDoesNotExist() throws Exception {
+        when(cardService.getCardByName("Unbekannt")).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/cards/Unbekannt"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.status").value(404))
+                .andExpect(jsonPath("$.error").value("NOT_FOUND"))
+                .andExpect(jsonPath("$.message").value("Keine Karte mit diesem Namen gefunden."))
+                .andExpect(jsonPath("$.path").value("/api/cards/Unbekannt"));
+
+        verify(cardService).getCardByName("Unbekannt");
+        verifyNoMoreInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnInternalServerErrorJsonWhenUnexpectedExceptionOccurs() throws Exception {
+        when(cardService.getAllCards()).thenThrow(new IllegalStateException("boom"));
+
+        mockMvc.perform(get("/api/cards").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$.status").value(500))
+                .andExpect(jsonPath("$.error").value("INTERNAL_SERVER_ERROR"))
+                .andExpect(jsonPath("$.message").value("Ein unerwarteter Fehler ist aufgetreten."))
+                .andExpect(jsonPath("$.path").value("/api/cards"));
+
+        verify(cardService).getAllCards();
+        verifyNoMoreInteractions(cardService);
     }
 
     @Test
@@ -85,13 +149,28 @@ class CardControllerWebMvcTest {
     }
 
     @Test
+    void shouldReturnCardsByNumberWhenNumberIsProvided() throws Exception {
+        List<Card> cards = List.of(createCard("Der Magier", "Große Arkana", "I"));
+        when(cardService.getCardsByNumber("I")).thenReturn(cards);
+
+        mockMvc.perform(get("/api/cards").param("number", "I"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].number").value("I"));
+
+        verify(cardService).getCardsByNumber("I");
+        verifyNoMoreInteractions(cardService);
+    }
+
+    @Test
     void shouldTreatBlankFiltersAsNotSet() throws Exception {
         List<Card> cards = List.of(createCard("Der Narr", "Große Arkana", "0"));
         when(cardService.getAllCards()).thenReturn(cards);
 
         mockMvc.perform(get("/api/cards")
                         .param("suit", "   ")
-                        .param("search", ""))
+                        .param("search", "")
+                        .param("number", "   "))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].name").value("Der Narr"));

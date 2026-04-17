@@ -10,8 +10,7 @@ import java.util.Optional;
 /**
  * Business-Logic-Schicht für Kartenverwaltung.
  * Liegt zwischen Controller und Repository (klassisches 3-Schichten-Modell).
- *
- * @Service → Spring registriert diese Klasse als Service-Bean
+ * {@code @Service} -> Spring registriert diese Klasse als Service-Bean
  * In C# wäre das ein [Service]-annotierter oder ICardService-implementierender Klasse.
  */
 @Service
@@ -50,6 +49,13 @@ public class CardService {
      */
     public List<Card> searchCards(String query) {
         return cardRepository.searchByName(query);
+    }
+
+    /**
+     * Alle Karten mit einer bestimmten Kartennummer laden.
+     */
+    public List<Card> getCardsByNumber(String number) {
+        return cardRepository.findByNumber(number);
     }
 
     /**
