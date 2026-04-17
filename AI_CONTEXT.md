@@ -61,6 +61,7 @@ Datei: backend/src/main/java/com/tarotapp/controller/CardController.java
 - GET /api/cards (optional suit/search/number; genau ein Filter erlaubt)
 - GET /api/cards/suits
 - GET /api/cards/{name}
+- GET /api/cards/{name}/interpretation?orientation=upright|reversed
 - Swagger Annotationen sind vorhanden
 
 Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
@@ -86,10 +87,12 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
   - Schichten: `SpreadRepository` -> `SpreadService` -> `SpreadController`
   - Vordefinierte Muster: `three-card`, `cross-5`
   - WebMvc-Tests: `SpreadControllerWebMvcTest` (Liste, Detail, 404)
+- `GET /api/cards/{name}/interpretation` liefert orientierungsabhaengige Karten-Interpretation (`InterpretationResponse`): kernbotschaft, psychologie (aufrecht/umgekehrt), anwendungsfelder, archetyp, imageFile.
+- Backend-Stand ist fuer das beschriebene Produktziel vollstaendig.
 
 ## 6) Naechste pragmatische Schritte
-1. Service-/Repository-Tests gezielt ausbauen (insb. Spread-Service).
-2. API fuer eine konkrete Legung vorbereiten (Position -> gewaehlte Karte + Orientierung).
+1. Frontend-Entwicklung starten (React/TypeScript).
+2. Optional: Service-/Repository-Tests gezielt ausbauen.
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
 ## 7) Kontext im neuen Chat wiederherstellen (Copy/Paste Prompt)

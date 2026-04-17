@@ -1,6 +1,7 @@
 package com.tarotapp.controller;
 
 import com.tarotapp.api.ApiError;
+import com.tarotapp.api.InterpretationResponse;
 import com.tarotapp.model.Card;
 import com.tarotapp.service.CardService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -139,6 +140,42 @@ public class CardController {
             @PathVariable String name) {
         return cardService.getCardByName(name)
                 .map(ResponseEntity::ok)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Keine Karte mit diesem Namen gefunden."
+                ));
+    }
+
+    /**
+     * GET /api/cards/{name}/interpretation?orientation=upright
+     * GET /api/cards/{name}/interpretation?orientation=reversed
+     */
+    @Operation(
+            summary = "Interpretation einer Karte abrufen",
+            description = "Gibt die orientierungsabhaengige Interpretation einer Karte zurueck. " +
+                    "orientation: 'upright' (aufrecht) oder 'reversed' (umgekehrt). " +
+                    "Standard ist 'upright' wenn nicht angegeben."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Interpretation erfolgreich geladen"),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Keine Karte mit diesem Namen gefunden",
+                    content = @Content(schema = @Schema(implementation = ApiError.class))
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Unerwarteter Serverfehler",
+                    content = @Content(schema = @Schema(implementation = ApiError.class))
+            )
+    })
+    @GetMapping("/{name}/interpretation")
+    public InterpretationResponse getInterpretation(
+            @Parameter(description = "Deutscher Kartenname, z.B. 'Der Narr'")
+            @PathVariable String name,
+            @Parameter(description = "Orientierung: 'upright' (Standard) oder 'reversed'")
+            @RequestParam(required = false, defaultValue = "upright") String orientation) {
+        return cardService.getInterpretation(name, orientation)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Keine Karte mit diesem Namen gefunden."

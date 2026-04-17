@@ -1,5 +1,6 @@
 package com.tarotapp.controller;
 
+import com.tarotapp.api.InterpretationResponse;
 import com.tarotapp.model.Card;
 import com.tarotapp.service.CardService;
 import org.junit.jupiter.api.Test;
@@ -185,6 +186,58 @@ class CardControllerWebMvcTest {
         card.setSuit(suit);
         card.setNumber(number);
         return card;
+    }
+
+    @Test
+    void shouldReturnUprightInterpretationByDefault() throws Exception {
+        var interpretation = new InterpretationResponse(
+                "Der Narr", "Große Arkana", "0", "upright",
+                "Neubeginn und Offenheit", "Unvoreingenommene Neugier",
+                java.util.Map.of("beruf", "Start neuer Projekte"),
+                "Der Suchende", "00_Fool.jpg", "/images/00_Fool.jpg"
+        );
+        when(cardService.getInterpretation("Der Narr", "upright")).thenReturn(java.util.Optional.of(interpretation));
+
+        mockMvc.perform(get("/api/cards/Der Narr/interpretation"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("Der Narr"))
+                .andExpect(jsonPath("$.orientation").value("upright"))
+                .andExpect(jsonPath("$.psychologie").value("Unvoreingenommene Neugier"));
+
+        verify(cardService).getInterpretation("Der Narr", "upright");
+        verifyNoMoreInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnReversedInterpretation() throws Exception {
+        var interpretation = new InterpretationResponse(
+                "Der Narr", "Große Arkana", "0", "reversed",
+                "Neubeginn und Offenheit", "Impulsivitaet und Naivitaet",
+                java.util.Map.of("beruf", "Fehlende Vorbereitung"),
+                "Der Suchende", "00_Fool.jpg", "/images/00_Fool.jpg"
+        );
+        when(cardService.getInterpretation("Der Narr", "reversed")).thenReturn(java.util.Optional.of(interpretation));
+
+        mockMvc.perform(get("/api/cards/Der Narr/interpretation").param("orientation", "reversed"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.orientation").value("reversed"))
+                .andExpect(jsonPath("$.psychologie").value("Impulsivitaet und Naivitaet"));
+
+        verify(cardService).getInterpretation("Der Narr", "reversed");
+        verifyNoMoreInteractions(cardService);
+    }
+
+    @Test
+    void shouldReturnNotFoundForUnknownCardInterpretation() throws Exception {
+        when(cardService.getInterpretation("Unbekannt", "upright")).thenReturn(java.util.Optional.empty());
+
+        mockMvc.perform(get("/api/cards/Unbekannt/interpretation"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.status").value(404))
+                .andExpect(jsonPath("$.error").value("NOT_FOUND"));
+
+        verify(cardService).getInterpretation("Unbekannt", "upright");
+        verifyNoMoreInteractions(cardService);
     }
 }
 

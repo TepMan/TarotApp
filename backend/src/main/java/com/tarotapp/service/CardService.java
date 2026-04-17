@@ -2,6 +2,7 @@ package com.tarotapp.service;
 
 import com.tarotapp.model.Card;
 import com.tarotapp.repository.CardRepository;
+import com.tarotapp.api.InterpretationResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,6 +69,32 @@ public class CardService {
                 .distinct()
                 .sorted()
                 .toList();
+    }
+
+    /**
+     * Baut die orientierungsabhaengige Interpretation einer Karte zusammen.
+     * orientation: "upright" (aufrecht) oder "reversed" (umgekehrt).
+     * Gibt Optional.empty() zurueck wenn die Karte nicht gefunden wird.
+     */
+    public Optional<InterpretationResponse> getInterpretation(String name, String orientation) {
+        return cardRepository.findByName(name).map(card -> {
+            boolean isUpright = !"reversed".equalsIgnoreCase(orientation);
+            String psychologie = isUpright
+                    ? card.getPsychologischAufrecht()
+                    : card.getPsychologischUmgekehrt();
+            return new InterpretationResponse(
+                    card.getName(),
+                    card.getSuit(),
+                    card.getNumber(),
+                    isUpright ? "upright" : "reversed",
+                    card.getKernbotschaft(),
+                    psychologie,
+                    card.getAnwendungsfelder(),
+                    card.getArchetyp(),
+                    card.getImageFile(),
+                    card.getImagePath()
+            );
+        });
     }
 }
 
