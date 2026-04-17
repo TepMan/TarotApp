@@ -2,6 +2,7 @@ package com.tarotapp.service;
 
 import com.tarotapp.model.Card;
 import com.tarotapp.repository.CardRepository;
+import com.tarotapp.api.InterpretationResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +11,7 @@ import java.util.Optional;
 /**
  * Business-Logic-Schicht für Kartenverwaltung.
  * Liegt zwischen Controller und Repository (klassisches 3-Schichten-Modell).
- *
- * @Service → Spring registriert diese Klasse als Service-Bean
+ * {@code @Service} -> Spring registriert diese Klasse als Service-Bean
  * In C# wäre das ein [Service]-annotierter oder ICardService-implementierender Klasse.
  */
 @Service
@@ -53,6 +53,13 @@ public class CardService {
     }
 
     /**
+     * Alle Karten mit einer bestimmten Kartennummer laden.
+     */
+    public List<Card> getCardsByNumber(String number) {
+        return cardRepository.findByNumber(number);
+    }
+
+    /**
      * Gibt alle eindeutigen Suits (Gruppen) zurück.
      * Java Streams: .map().distinct().sorted() → wie LINQ .Select().Distinct().OrderBy()
      */
@@ -62,6 +69,32 @@ public class CardService {
                 .distinct()
                 .sorted()
                 .toList();
+    }
+
+    /**
+     * Baut die orientierungsabhaengige Interpretation einer Karte zusammen.
+     * orientation: "upright" (aufrecht) oder "reversed" (umgekehrt).
+     * Gibt Optional.empty() zurueck wenn die Karte nicht gefunden wird.
+     */
+    public Optional<InterpretationResponse> getInterpretation(String name, String orientation) {
+        return cardRepository.findByName(name).map(card -> {
+            boolean isUpright = !"reversed".equalsIgnoreCase(orientation);
+            String psychologie = isUpright
+                    ? card.getPsychologischAufrecht()
+                    : card.getPsychologischUmgekehrt();
+            return new InterpretationResponse(
+                    card.getName(),
+                    card.getSuit(),
+                    card.getNumber(),
+                    isUpright ? "upright" : "reversed",
+                    card.getKernbotschaft(),
+                    psychologie,
+                    card.getAnwendungsfelder(),
+                    card.getArchetyp(),
+                    card.getImageFile(),
+                    card.getImagePath()
+            );
+        });
     }
 }
 

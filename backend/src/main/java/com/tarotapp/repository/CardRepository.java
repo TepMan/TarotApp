@@ -11,8 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Datenzugriffs-Schicht: Stellt Such- und Filterfunktionen bereit.
  * In C# wäre das ein IRepository<Card> mit LINQ-Implementierung.
- *
- * @Repository → Spring registriert diese Klasse als Daten-Bean
+ * {@code @Repository} -> Spring registriert diese Klasse als Daten-Bean
  * Alle Daten liegen im Arbeitsspeicher (kein DB-Zugriff nötig).
  */
 @Repository
@@ -61,6 +60,15 @@ public class CardRepository {
         String lowerQuery = query.toLowerCase();
         return dataLoader.getCards().stream()
                 .filter(card -> card.getName().toLowerCase().contains(lowerQuery))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Gibt alle Karten mit einer bestimmten Kartennummer zurück (z.B. "0", "I", "2").
+     */
+    public List<Card> findByNumber(String number) {
+        return dataLoader.getCards().stream()
+                .filter(card -> card.getNumber().equalsIgnoreCase(number))
                 .collect(Collectors.toList());
     }
 }
