@@ -109,6 +109,7 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
   - CI-Workflow `.github/workflows/frontend-tests.yml` fuer Push/PR auf `dev`
   - Abgedeckte Kernbausteine: `ReadingPage`, `SpreadSelector`, `SpreadBoard`, E2E-Reading-Flow
   - Vite- und Vitest-Konfiguration sind getrennt (`vite.config.ts` + `vitest.config.ts`), damit Frontend-Build und GitHub Actions ohne Typkonflikte laufen.
+  - `tsconfig.node.json` umfasst auch `playwright.config.ts` und `tests/e2e/**/*.ts`; `process`/`Buffer` sind in Playwright-Dateien explizit importiert, damit IntelliJ keine roten Typfehler mehr zeigt.
 - Neuer Release-PR-Workflow `.github/workflows/pr-release-check.yml` laeuft fuer Pull Requests von `dev` nach `main` und baut/testet Backend + Frontend komplett.
 - Der Release-PR-Workflow nutzt `concurrency`, damit aeltere Laeufe derselben PR automatisch abgebrochen werden.
 
