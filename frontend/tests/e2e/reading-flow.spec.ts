@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { Buffer } from 'node:buffer'
 
 async function mockApi(page: import('@playwright/test').Page) {
   await page.route('**/api/spreads', async (route) => {
