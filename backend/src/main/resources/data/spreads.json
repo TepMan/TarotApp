@@ -1,0 +1,27 @@
+[
+  {
+    "id": "three-card",
+    "name": "3-Karten Legung",
+    "description": "Klassische Legung fuer Vergangenheit, Gegenwart und Tendenz.",
+    "tags": ["einsteiger", "kurz"],
+    "positions": [
+      { "index": 1, "key": "past",    "label": "Vergangenheit", "prompt": "Welche Praegung wirkt noch nach?",       "layoutX": 0, "layoutY": 0 },
+      { "index": 2, "key": "present", "label": "Gegenwart",     "prompt": "Was ist jetzt wesentlich?",             "layoutX": 1, "layoutY": 0 },
+      { "index": 3, "key": "future",  "label": "Tendenz",       "prompt": "Wohin entwickelt sich die Situation?",  "layoutX": 2, "layoutY": 0 }
+    ]
+  },
+  {
+    "id": "cross-5",
+    "name": "5er Kreuz",
+    "description": "Zeigt Kern, Einflussfaktoren und naechsten Schritt.",
+    "tags": ["standard", "analyse"],
+    "positions": [
+      { "index": 1, "key": "center", "label": "Kern",           "prompt": "Was ist das zentrale Thema?",           "layoutX": 1, "layoutY": 1 },
+      { "index": 2, "key": "left",   "label": "Vergangenheit",  "prompt": "Was hat die Lage geformt?",             "layoutX": 0, "layoutY": 1 },
+      { "index": 3, "key": "right",  "label": "Naechster Schritt", "prompt": "Was ist als naechstes hilfreich?",   "layoutX": 2, "layoutY": 1 },
+      { "index": 4, "key": "top",    "label": "Bewusst",        "prompt": "Was ist dir klar?",                     "layoutX": 1, "layoutY": 0 },
+      { "index": 5, "key": "bottom", "label": "Unbewusst",      "prompt": "Was wirkt im Hintergrund?",             "layoutX": 1, "layoutY": 2 }
+    ]
+  }
+]
+

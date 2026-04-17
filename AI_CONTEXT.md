@@ -58,10 +58,15 @@ Produktziel: Eine Arbeitshilfe fuer physisches Tarot-Legen - Legemuster waehlen,
 
 ## 4) Aktueller API-Kontext (aus CardController)
 Datei: backend/src/main/java/com/tarotapp/controller/CardController.java
-- GET /api/cards (optional suit/search)
+- GET /api/cards (optional suit/search/number; genau ein Filter erlaubt)
 - GET /api/cards/suits
 - GET /api/cards/{name}
 - Swagger Annotationen sind vorhanden
+
+Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
+- GET /api/spreads (Summary-Liste der Legemuster)
+- GET /api/spreads/{id} (Detail inkl. Positionen)
+- 404/500 sind mit `ApiError` dokumentiert
 
 ## 5) Aktueller Umsetzungsstand
 - Projektstruktur fuer Backend/Frontend ist erstellt.
@@ -76,10 +81,15 @@ Datei: backend/src/main/java/com/tarotapp/controller/CardController.java
 - Globales Error-Handling ist eingefuehrt: `@RestControllerAdvice` liefert konsistentes Error-JSON mit `status`, `error`, `message`, `path` fuer 400/404/500.
 - `GET /api/cards/{name}` nutzt fuer unbekannte Karten jetzt ebenfalls das zentrale Error-JSON (404 statt leerem Body).
 - OpenAPI/Swagger dokumentiert die Error-Responses jetzt explizit (400/404/500) mit `ApiError`-Schema.
+- Erstes API-Modell fuer Legemuster/Positionen ist implementiert (read-only):
+  - Modelle: `Spread`, `SpreadSummary`, `SpreadPosition`
+  - Schichten: `SpreadRepository` -> `SpreadService` -> `SpreadController`
+  - Vordefinierte Muster: `three-card`, `cross-5`
+  - WebMvc-Tests: `SpreadControllerWebMvcTest` (Liste, Detail, 404)
 
 ## 6) Naechste pragmatische Schritte
-1. Service-/Repository-Tests gezielt ausbauen.
-2. Danach das erste API-Modell fuer Legemuster/Positionen entwerfen.
+1. Service-/Repository-Tests gezielt ausbauen (insb. Spread-Service).
+2. API fuer eine konkrete Legung vorbereiten (Position -> gewaehlte Karte + Orientierung).
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
 ## 7) Kontext im neuen Chat wiederherstellen (Copy/Paste Prompt)
