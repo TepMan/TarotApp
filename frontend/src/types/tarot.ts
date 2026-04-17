@@ -64,3 +64,11 @@ export type CardFilter = {
   number?: string
 }
 
+export type PositionCardSelection = {
+  positionKey: string
+  positionIndex: number
+  positionLabel: string
+  cardName: string
+  orientation: Orientation
+}
+

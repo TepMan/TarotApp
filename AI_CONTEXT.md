@@ -95,9 +95,11 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
 - Frontend Schritt 2 ist umgesetzt: Vite-Template ersetzt durch `ReadingPage`-Skelett (`frontend/src/pages/ReadingPage.tsx`) mit Platzhaltern fuer die naechsten Feature-Komponenten.
 - Frontend Schritt 3 ist umgesetzt: `SpreadSelector` laedt Legemuster aus der API, zeigt Loading/Error/Retry und setzt die Auswahl in `ReadingPage`.
 - Frontend Schritt 4 ist umgesetzt: `SpreadBoard` laedt Detaildaten via `/api/spreads/{id}` und rendert Positionen grafisch ueber `layoutX/layoutY` (inkl. Loading/Error/Retry).
+- Frontend Schritt 5 ist umgesetzt: `PositionEditor` laedt Positionen + Karten, erlaubt pro Position die Auswahl von Karte und Orientierung und meldet die Belegung an `ReadingPage`.
+- Frontend Schritt 6 ist umgesetzt: `InterpretationPanel` laedt pro belegter Position die Interpretation via `/api/cards/{name}/interpretation` und zeigt Kernbotschaft/Psychologie/Archetyp inkl. Bild an.
 
 ## 6) Naechste pragmatische Schritte
-1. Frontend Schritt 5: `PositionEditor` implementieren (pro Position Karte + Orientierung waehlen).
+1. Frontend-Feinschliff: UX verbessern (Suchfeld im PositionEditor, bessere Fehlermeldungen, optional lokale Persistenz der aktuellen Legung).
 2. Optional: Service-/Repository-Tests gezielt ausbauen.
 3. Optional: Fehlercodes/Fehlermeldungen als feste API-Konstanten standardisieren.
 
