@@ -85,7 +85,7 @@ export function InterpretationPanel({ selections, totalPositions }: Interpretati
   )
 
   if (selections.length === 0) {
-    return <p>Waehle zuerst mindestens eine Karte im PositionEditor aus.</p>
+    return <p>Wähle zuerst mindestens eine Karte im PositionEditor aus.</p>
   }
 
   return (

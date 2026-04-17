@@ -110,11 +110,11 @@ export function PositionEditor({ spreadId, spreadName, onSelectionsChange }: Pos
   }
 
   if (!spreadId) {
-    return <p>Waehle zuerst ein Legemuster aus.</p>
+    return <p>Wähle zuerst ein Legemuster aus.</p>
   }
 
   if (isLoading) {
-    return <p>Lade Positionen und Karten fuer "{spreadName ?? spreadId}"...</p>
+    return <p>Lade Positionen und Karten für "{spreadName ?? spreadId}"...</p>
   }
 
   if (error) {
@@ -129,7 +129,7 @@ export function PositionEditor({ spreadId, spreadName, onSelectionsChange }: Pos
   }
 
   if (!spread) {
-    return <p>Kein Legemuster-Detail verfuegbar.</p>
+    return <p>Kein Legemuster-Detail verfügbar.</p>
   }
 
   if (spread.positions.length === 0) {
@@ -143,7 +143,7 @@ export function PositionEditor({ spreadId, spreadName, onSelectionsChange }: Pos
   return (
     <div className="position-editor">
       <p className="position-editor-hint">
-        Waehle pro Position eine Karte und die Orientierung (aufrecht/umgekehrt).
+        Wähle pro Position eine Karte und die Orientierung (aufrecht/umgekehrt).
       </p>
 
       <ul className="position-editor-list">
@@ -169,7 +169,7 @@ export function PositionEditor({ spreadId, spreadName, onSelectionsChange }: Pos
                       updateSelection(position.key, { cardName: event.target.value })
                     }
                   >
-                    <option value="">-- Karte waehlen --</option>
+                    <option value="">-- Karte wählen --</option>
                     {cards.map((card) => (
                       <option key={card.name} value={card.name}>
                         {card.name} ({card.number})

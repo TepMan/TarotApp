@@ -383,11 +383,11 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   }, [spread])
 
   if (!spreadId) {
-    return <p>Waehle zuerst ein Legemuster aus.</p>
+    return <p>Wähle zuerst ein Legemuster aus.</p>
   }
 
   if (isLoading) {
-    return <p>Lade Board fuer "{spreadName ?? spreadId}"...</p>
+    return <p>Lade Board für "{spreadName ?? spreadId}"...</p>
   }
 
   if (error) {
@@ -402,7 +402,7 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   }
 
   if (!spread) {
-    return <p>Kein Legemuster-Detail verfuegbar.</p>
+    return <p>Kein Legemuster-Detail verfügbar.</p>
   }
 
   if (cards.length === 0) {
