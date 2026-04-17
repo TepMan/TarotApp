@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleGenericException(Exception ex, HttpServletRequest request) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-        logger.error("Unerwarteter Fehler bei Request {}: {}", request.getRequestURI(), ex.getMessage());
+        logger.error("Unerwarteter Fehler bei Request {}", request.getRequestURI(), ex);
 
         return ResponseEntity.status(status)
                 .body(new ApiError(
