@@ -33,7 +33,6 @@ export function ReadingPage() {
       ) : null}
 
       <article className="panel panel-board" aria-label="Legemuster-Board">
-        <h2>Board</h2>
         <SpreadBoard spreadId={selectedSpread?.id} spreadName={selectedSpread?.name} />
       </article>
     </main>
