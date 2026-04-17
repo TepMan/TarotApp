@@ -103,6 +103,13 @@ Datei: backend/src/main/java/com/tarotapp/controller/SpreadController.java
 - Frontend-Feinschliff (Board-zentrierter Flow) ist umgesetzt: Kartenwahl + Orientierung direkt in den Board-Kacheln, Bildrotation bei umgekehrter Orientierung und Interpretation pro Kachel.
 - Frontend-UX erweitert: Kartensuche je Kachel, ein-/ausklappbare Interpretation und Persistenz der Legung pro Legemuster in `localStorage`.
 - Karten koennen im aktuellen Legemuster nur einmal gewaehlt werden (Duplikat-Schutz im `SpreadBoard`, inklusive Hinweis im UI).
+- Frontend-Testinfrastruktur ist eingerichtet:
+  - Unit/Component-Tests mit Vitest + Testing Library
+  - E2E-Tests mit Playwright
+  - CI-Workflow `.github/workflows/frontend-tests.yml` fuer Push/PR auf `dev`
+  - Abgedeckte Kernbausteine: `ReadingPage`, `SpreadSelector`, `SpreadBoard`, E2E-Reading-Flow
+- Neuer Release-PR-Workflow `.github/workflows/pr-release-check.yml` laeuft fuer Pull Requests von `dev` nach `main` und baut/testet Backend + Frontend komplett.
+- Der Release-PR-Workflow nutzt `concurrency`, damit aeltere Laeufe derselben PR automatisch abgebrochen werden.
 
 ## 6) Naechste pragmatische Schritte
 1. Optionaler Frontend-Feinschliff: Performance optimieren (Interpretations-Cache card+orientation, Lazy-Loading fuer große Boards).

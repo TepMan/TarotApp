@@ -102,6 +102,36 @@ cd frontend
 npm run build
 ```
 
+### Tests
+
+Unit-/Component-Tests mit Vitest:
+
+```bash
+cd frontend
+npm run test:unit
+```
+
+End-to-End-Tests mit Playwright:
+
+```bash
+cd frontend
+npx playwright install chromium
+npm run test:e2e
+```
+
+Alle Frontend-Tests lokal hintereinander:
+
+```bash
+cd frontend
+npm run test
+```
+
+CI:
+- Frontend-Tests laufen automatisch über `.github/workflows/frontend-tests.yml`
+- Trigger: Push/PR auf `dev`, wenn Dateien unter `frontend/**` geändert wurden
+- Vollständiger Release-Check für PRs von `dev` nach `main` läuft über `.github/workflows/pr-release-check.yml`
+- Dabei werden Backend und Frontend gebaut und alle Tests ausgeführt
+
 ---
 
 ## Legemuster hinzufügen
