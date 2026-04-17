@@ -20,9 +20,9 @@ export function SpreadSelector({ selectedSpreadId, onSelectSpread }: SpreadSelec
       const data = await getSpreads()
       setSpreads(data)
 
-      // Auto-select first spread for a smoother first-run UX.
       if (data.length > 0 && !selectedSpreadId) {
-        onSelectSpread(data[0])
+        const defaultSpread = data.find((spread) => spread.id === 'three-card') ?? data[0]
+        onSelectSpread(defaultSpread)
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Legemuster konnten nicht geladen werden.')
@@ -58,25 +58,26 @@ export function SpreadSelector({ selectedSpreadId, onSelectSpread }: SpreadSelec
 
   return (
     <div className="spread-selector">
-      <p className="spread-selector-hint">Waehle ein Legemuster fuer die aktuelle Legung:</p>
-      <ul className="spread-selector-list">
-        {spreads.map((spread) => {
-          const isSelected = spread.id === selectedSpreadId
-          return (
-            <li key={spread.id}>
-              <button
-                type="button"
-                className={`spread-option ${isSelected ? 'is-selected' : ''}`}
-                onClick={() => onSelectSpread(spread)}
-              >
-                <strong>{spread.name}</strong>
-                <span>{spread.description}</span>
-                <small>{spread.positionCount} Positionen</small>
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      <label className="spread-selector-hint" htmlFor="spread-select">
+        Legemuster auswählen
+      </label>
+      <select
+        id="spread-select"
+        className="spread-select"
+        value={selectedSpreadId ?? ''}
+        onChange={(event) => {
+          const spread = spreads.find((item) => item.id === event.target.value)
+          if (spread) {
+            onSelectSpread(spread)
+          }
+        }}
+      >
+        {spreads.map((spread) => (
+          <option key={spread.id} value={spread.id}>
+            {spread.name} ({spread.positionCount} Positionen)
+          </option>
+        ))}
+      </select>
     </div>
   )
 }

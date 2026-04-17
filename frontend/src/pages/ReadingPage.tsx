@@ -13,29 +13,37 @@ export function ReadingPage() {
   return (
     <main className="reading-page">
       <header className="reading-header">
-        <h1>Tarot Reading Workspace</h1>
+        <h1>TepMan&apos;s Tarot App</h1>
         <p>
-          Waehle ein Legemuster, belege die Positionen mit Karten und rufe danach die
+          Wähle ein Legemuster, belege die Positionen mit Karten und rufe danach die
           Interpretation pro Position ab.
         </p>
       </header>
 
-      <section className="reading-grid" aria-label="Reading Layout Platzhalter">
-        <article className="panel panel-selector" aria-label="Legemuster-Auswahl">
-          <h2>1) Legemuster</h2>
+      <section className="spread-selector-area" aria-label="Legemuster-Auswahl">
+        <article className="panel panel-selector">
           <SpreadSelector
             selectedSpreadId={selectedSpread?.id}
             onSelectSpread={setSelectedSpread}
           />
         </article>
+      </section>
 
-        <article className="panel panel-board" aria-label="Legemuster-Board">
-          <h2>2) Legemuster-Board</h2>
-          <SpreadBoard spreadId={selectedSpread?.id} spreadName={selectedSpread?.name} />
-        </article>
+      {selectedSpread ? (
+        <section className="selected-spread-description" aria-label="Legemuster-Beschreibung">
+          <h2>{selectedSpread.name}</h2>
+          <p>{selectedSpread.description}</p>
+        </section>
+      ) : null}
 
+      <article className="panel panel-board" aria-label="Legemuster-Board">
+        <h2>Board</h2>
+        <SpreadBoard spreadId={selectedSpread?.id} spreadName={selectedSpread?.name} />
+      </article>
+
+      <section className="reading-grid" aria-label="Positions-Editor und Interpretation">
         <article className="panel panel-editor" aria-label="Positions-Editor">
-          <h2>3) Position bearbeiten</h2>
+          <h2>Positionen bearbeiten</h2>
           <PositionEditor
             spreadId={selectedSpread?.id}
             spreadName={selectedSpread?.name}
@@ -44,7 +52,7 @@ export function ReadingPage() {
         </article>
 
         <article className="panel panel-interpretation" aria-label="Interpretation">
-          <h2>4) Interpretation</h2>
+          <h2>Interpretation</h2>
           <InterpretationPanel
             selections={positionSelections}
             totalPositions={selectedSpread?.positionCount}
