@@ -1,8 +1,6 @@
 services:
   backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
+    image: ghcr.io/${GHCR_OWNER}/tarotapp-backend:${APP_VERSION:-latest}
     container_name: tarotapp-backend
     restart: unless-stopped
     healthcheck:
@@ -15,11 +13,7 @@ services:
       - "8080:8080"
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        VITE_API_BASE_URL: ""
+    image: ghcr.io/${GHCR_OWNER}/tarotapp-frontend:${APP_VERSION:-latest}
     container_name: tarotapp-frontend
     restart: unless-stopped
     depends_on:

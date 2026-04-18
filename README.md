@@ -131,6 +131,7 @@ CI:
 - Trigger: Push/PR auf `dev`, wenn Dateien unter `frontend/**` geändert wurden
 - Vollständiger Release-Check für PRs von `dev` nach `main` läuft über `.github/workflows/pr-release-check.yml`
 - Dabei werden Backend und Frontend gebaut und alle Tests ausgeführt
+- Container-Images werden nur bei Push auf `main` nach GHCR veröffentlicht (`.github/workflows/ghcr-publish.yml`)
 
 ---
 
@@ -169,6 +170,82 @@ docker compose down
 
 - Das Frontend läuft in Nginx und leitet `/api/**` sowie `/images/**` intern an den Backend-Service weiter.
 - Die Tarot-Bilder werden im Backend-Container unter `/app/static/card_images/720px` bereitgestellt.
+- Das Frontend startet erst, wenn das Backend per Healthcheck als `healthy` gilt.
+
+### Optionale lokale Overrides
+
+Wenn du Ports oder Restart-Verhalten lokal anpassen willst, ohne die Standarddatei zu ändern:
+
+```bash
+cp docker-compose.override.example.yml docker-compose.override.yml
+```
+
+Danach werden die Werte aus `docker-compose.override.yml` automatisch von `docker compose` mitgeladen.
+
+### Deployment mit GHCR-Images (ohne lokalen Build)
+
+Wenn du statt lokalem Build fertige Images aus GHCR verwenden möchtest:
+
+1. Beispiel-Konfiguration kopieren und anpassen:
+
+```bash
+cp .env.ghcr.example .env.ghcr
+```
+
+2. In `.env.ghcr` setzen:
+   - `GHCR_OWNER` (GitHub User/Org, kleingeschrieben)
+   - `APP_VERSION` (z. B. `1.0.2`, `1.0` oder `latest`)
+
+3. Starten:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml up -d
+```
+
+4. Update auf neuere Version ziehen:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml pull
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml up -d
+```
+
+5. Stoppen:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml down
+```
+
+Optional kannst du auch hier ein eigenes GHCR-Override verwenden:
+
+```bash
+cp docker-compose.ghcr.override.example.yml docker-compose.ghcr.override.yml
+```
+
+Dann Start mit Override:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml -f docker-compose.ghcr.override.yml up -d
+```
+
+### One-Command Deploy / Rollback (empfohlen)
+
+Für wiederholbare Updates kannst du die Skripte unter `scripts/` verwenden:
+
+```bash
+bash scripts/deploy.sh 1.0.2
+```
+
+Rollback auf eine ältere Version:
+
+```bash
+bash scripts/rollback.sh 1.0.1
+```
+
+Trockenlauf ohne echte Docker-Aktion:
+
+```bash
+bash scripts/deploy.sh 1.0.2 --dry-run
+```
 
 ---
 

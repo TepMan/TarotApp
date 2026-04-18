@@ -1,0 +1,14 @@
+services:
+  backend:
+    # Beispiel: Port anpassen, falls 8080 schon belegt ist.
+    ports:
+      - "18080:8080"
+    # Beispiel: Restart-Policy fuer lokale Entwicklung lockern.
+    restart: unless-stopped
+
+  frontend:
+    # Beispiel: Frontend auf anderem Host-Port veroeffentlichen.
+    ports:
+      - "15173:80"
+    restart: unless-stopped
+
