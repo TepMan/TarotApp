@@ -157,3 +157,14 @@ Neue Legemuster können ohne Code-Änderung direkt in `backend/src/main/resource
 Das Backend erlaubt standardmäßig Anfragen von `http://localhost:5173` und `http://localhost:3000`.  
 Konfiguration in `backend/src/main/java/com/tarotapp/config/WebConfig.java`.
 
+---
+
+## Lizenz
+
+- Eigener Quellcode in diesem Repository steht unter der **Apache License 2.0** (siehe `LICENSE`).
+- Tarot-Bilder unter `static/card_images/` stammen aus `https://github.com/mixvlad/TarotCards` und stehen laut Upstream unter **Creative Commons NonCommercial (CC BY-NC)**.
+- Diese Bilddateien sind **nicht** Teil der Apache-2.0-Lizenz.
+
+Details und Hinweise zu Drittanbieter-Lizenzen: `THIRD_PARTY_LICENSES.md`.
+Zusammenfassung der Lizenztrennung: `NOTICE`.
+
