@@ -1,0 +1,45 @@
+name: Version Bump
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  bump-version:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Bump version by branch rule
+        run: python3 .github/scripts/bump_version.py --branch "${GITHUB_REF_NAME}"
+
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet; then
+            echo "Keine Versionsaenderung notwendig."
+            exit 0
+          fi
+
+          VERSION=$(python3 -c "import json; v=json.load(open('version.json', encoding='utf-8')); print(f\"{v['major']}.{v['minor']}.{v['patch']}\")")
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add version.json backend/pom.xml frontend/package.json frontend/package-lock.json
+          git commit -m "chore: bump app version to ${VERSION} [skip version bump]"
+          git push
+

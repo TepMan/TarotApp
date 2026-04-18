@@ -4,7 +4,12 @@ import './App.css'
 function App() {
   return (
     <div className="app-shell">
-      <ReadingPage />
+      <div className="app-content">
+        <ReadingPage />
+      </div>
+      <footer className="app-footer" aria-label="App-Version">
+        Version {__APP_VERSION__}
+      </footer>
     </div>
   )
 }
