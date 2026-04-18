@@ -241,6 +241,12 @@ Rollback auf eine ältere Version:
 bash scripts/rollback.sh 1.0.1
 ```
 
+Aktuellen Deployment-Status anzeigen:
+
+```bash
+bash scripts/status.sh
+```
+
 Trockenlauf ohne echte Docker-Aktion:
 
 ```bash
