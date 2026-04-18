@@ -21,3 +21,8 @@ frontend/.vite/
 .DS_Store
 Thumbs.db
 
+# === Docker local deployment files ===
+.env.ghcr
+docker-compose.override.yml
+docker-compose.ghcr.override.yml
+

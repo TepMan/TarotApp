@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+
+**/node_modules
+**/dist
+**/target
+**/playwright-report
+**/test-results
+**/.DS_Store
+

@@ -1,0 +1,15 @@
+TarotApp - NOTICE
+
+Copyright 2026 TarotApp contributors
+
+This repository contains original source code licensed under the Apache License 2.0.
+See LICENSE for full terms.
+
+Important asset licensing separation:
+- Tarot card images in static/card_images/ are third-party assets.
+- These image files are NOT covered by the Apache-2.0 license of this project.
+- They are used under the upstream terms from https://github.com/mixvlad/TarotCards
+  (Creative Commons NonCommercial / CC BY-NC, according to upstream).
+
+For details and attribution requirements, see THIRD_PARTY_LICENSES.md.
+

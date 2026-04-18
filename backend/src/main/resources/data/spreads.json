@@ -2,7 +2,7 @@
   {
     "id": "three-card",
     "name": "3-Karten Legung",
-    "description": "Klassische Legung fuer Vergangenheit, Gegenwart und Tendenz.",
+    "description": "Klassische Legung für Vergangenheit, Gegenwart und Tendenz.",
     "tags": ["einsteiger", "kurz"],
     "positions": [
       { "index": 1, "key": "past",    "label": "Vergangenheit", "prompt": "Welche Prägung wirkt noch nach?",       "layoutX": 0, "layoutY": 0 },
@@ -67,6 +67,78 @@
       { "index": 5, "key": "my-feeling",  "label": "Mein Gefühl",       "prompt": "Was trägt dein Herz gerade?",                  "layoutX": 0, "layoutY": 2 },
       { "index": 6, "key": "their-feeling","label": "Ihr/Sein Gefühl",  "prompt": "Was trägt dein Gegenüber gerade?",             "layoutX": 2, "layoutY": 2 },
       { "index": 7, "key": "potential",   "label": "Potenzial",         "prompt": "Was ist das Potenzial dieser Verbindung?",      "layoutX": 1, "layoutY": 0 }
+    ]
+  },
+  {
+    "id": "the-way",
+    "name": "Der Weg",
+    "description": "Eine Weglegung für Standort, Hürden und die nächsten Etappen bis zum Ziel.",
+    "tags": ["weg", "entwicklung", "standard"],
+    "positions": [
+      { "index": 1, "key": "start",       "label": "Ausgangspunkt",    "prompt": "Wo stehst du aktuell?",                         "layoutX": 0, "layoutY": 1 },
+      { "index": 2, "key": "motive",      "label": "Antrieb",          "prompt": "Was bewegt dich auf diesem Weg?",               "layoutX": 1, "layoutY": 0 },
+      { "index": 3, "key": "obstacle",    "label": "Hürde",            "prompt": "Welche Herausforderung blockiert dich?",         "layoutX": 1, "layoutY": 2 },
+      { "index": 4, "key": "support",     "label": "Unterstützung",    "prompt": "Was hilft dir konkret weiter?",                 "layoutX": 2, "layoutY": 1 },
+      { "index": 5, "key": "next-step",   "label": "Nächster Schritt", "prompt": "Welcher Schritt ist jetzt sinnvoll?",            "layoutX": 3, "layoutY": 1 },
+      { "index": 6, "key": "destination", "label": "Ziel",             "prompt": "Wohin führt der Weg, wenn du dranbleibst?",     "layoutX": 4, "layoutY": 1 }
+    ]
+  },
+  {
+    "id": "self-knowledge",
+    "name": "Selbsterkenntnis",
+    "description": "Zeigt Selbstbild, blinde Flecken und den stimmigen Integrationsschritt.",
+    "tags": ["selbstreflexion", "inneres", "psychologisch"],
+    "positions": [
+      { "index": 1, "key": "self-image",      "label": "Selbstbild",       "prompt": "Wie siehst du dich selbst?",                     "layoutX": 1, "layoutY": 1 },
+      { "index": 2, "key": "outer-image",     "label": "Außenwirkung",     "prompt": "Wie wirkst du auf andere?",                      "layoutX": 0, "layoutY": 1 },
+      { "index": 3, "key": "blind-spot",      "label": "Blinder Fleck",    "prompt": "Was übersiehst du über dich?",                   "layoutX": 2, "layoutY": 1 },
+      { "index": 4, "key": "inner-truth",     "label": "Innere Wahrheit",  "prompt": "Was ist im Kern wahr für dich?",                 "layoutX": 1, "layoutY": 0 },
+      { "index": 5, "key": "integration-step", "label": "Integration",      "prompt": "Welcher Schritt bringt dich in stimmige Einheit?", "layoutX": 1, "layoutY": 2 }
+    ]
+  },
+  {
+    "id": "purgatory",
+    "name": "Fegefeuer",
+    "description": "Transformationslegung, um Belastungen zu klären und gereinigt neu auszurichten.",
+    "tags": ["transformation", "loslassen", "intensiv"],
+    "positions": [
+      { "index": 1, "key": "burden",        "label": "Last",             "prompt": "Was trägt gerade zu schwer?",                    "layoutX": 0, "layoutY": 1 },
+      { "index": 2, "key": "trigger",       "label": "Auslöser",         "prompt": "Was entzündet diese Dynamik?",                   "layoutX": 1, "layoutY": 0 },
+      { "index": 3, "key": "lesson",        "label": "Lernaufgabe",      "prompt": "Was will verstanden werden?",                    "layoutX": 1, "layoutY": 1 },
+      { "index": 4, "key": "release",       "label": "Loslassen",        "prompt": "Was darfst du bewusst verabschieden?",           "layoutX": 1, "layoutY": 2 },
+      { "index": 5, "key": "purification",  "label": "Klärung",          "prompt": "Was klärt und beruhigt dein System?",            "layoutX": 2, "layoutY": 1 },
+      { "index": 6, "key": "renewal",       "label": "Erneuerung",       "prompt": "Welche neue Qualität entsteht daraus?",          "layoutX": 3, "layoutY": 1 }
+    ]
+  },
+  {
+    "id": "decision-game",
+    "name": "Entscheidungsspiel",
+    "description": "Vergleicht zwei Optionen mit Chancen, Risiken und wahrscheinlicher Tendenz.",
+    "tags": ["entscheidung", "vergleich", "analyse"],
+    "positions": [
+      { "index": 1, "key": "topic",            "label": "Thema",              "prompt": "Worum geht es im Kern der Entscheidung?",         "layoutX": 2, "layoutY": 1 },
+      { "index": 2, "key": "option-a",         "label": "Option A",           "prompt": "Was zeigt sich auf Weg A?",                      "layoutX": 0, "layoutY": 0 },
+      { "index": 3, "key": "option-a-chance",  "label": "Chance A",           "prompt": "Was ist die Stärke von Option A?",               "layoutX": 0, "layoutY": 1 },
+      { "index": 4, "key": "option-a-risk",    "label": "Risiko A",           "prompt": "Welche Schattenseite hat Option A?",             "layoutX": 0, "layoutY": 2 },
+      { "index": 5, "key": "option-b",         "label": "Option B",           "prompt": "Was zeigt sich auf Weg B?",                      "layoutX": 4, "layoutY": 0 },
+      { "index": 6, "key": "option-b-chance",  "label": "Chance B",           "prompt": "Was ist die Stärke von Option B?",               "layoutX": 4, "layoutY": 1 },
+      { "index": 7, "key": "option-b-risk",    "label": "Risiko B",           "prompt": "Welche Schattenseite hat Option B?",             "layoutX": 4, "layoutY": 2 },
+      { "index": 8, "key": "tendency",         "label": "Tendenz",            "prompt": "Welche Richtung wirkt derzeit stimmiger?",       "layoutX": 2, "layoutY": 2 }
+    ]
+  },
+  {
+    "id": "horseshoe",
+    "name": "Hufeisen",
+    "description": "Klassisches Hufeisen mit sieben Karten für Verlauf, Einfluss und Ergebnis.",
+    "tags": ["klassisch", "verlauf", "standard"],
+    "positions": [
+      { "index": 1, "key": "past",          "label": "Vergangenheit",  "prompt": "Was hat die Situation bis hier geprägt?",       "layoutX": 0, "layoutY": 1 },
+      { "index": 2, "key": "present",       "label": "Gegenwart",      "prompt": "Wie zeigt sich die Lage jetzt?",                "layoutX": 1, "layoutY": 0 },
+      { "index": 3, "key": "hidden",        "label": "Verborgen",      "prompt": "Welche verborgenen Faktoren wirken mit?",       "layoutX": 2, "layoutY": 0 },
+      { "index": 4, "key": "advice",        "label": "Rat",            "prompt": "Was ist jetzt die beste Haltung oder Handlung?", "layoutX": 3, "layoutY": 0 },
+      { "index": 5, "key": "influences",    "label": "Einflüsse",      "prompt": "Welche Kräfte kommen von außen hinzu?",         "layoutX": 4, "layoutY": 0 },
+      { "index": 6, "key": "near-future",   "label": "Nahe Zukunft",   "prompt": "Was zeichnet sich als Nächstes ab?",            "layoutX": 5, "layoutY": 0 },
+      { "index": 7, "key": "outcome",       "label": "Ergebnis",       "prompt": "Wohin führt der Weg unter diesen Bedingungen?", "layoutX": 6, "layoutY": 1 }
     ]
   }
 ]

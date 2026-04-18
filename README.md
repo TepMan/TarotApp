@@ -1,91 +1,61 @@
 # TarotApp
 
-Eine Arbeitshilfe für das physische Legen von Tarot-Karten.
+TarotApp ist eine digitale Arbeitshilfe für das physische Legen von Tarot-Karten.
 
-Legemuster auswählen, gezogene Karten mit Orientierung (aufrecht/umgekehrt) erfassen und die passende Interpretation direkt angezeigt bekommen.
-
----
-
-## Projektstruktur
-
-```
-TarotApp/
-├── backend/        Spring Boot REST API (Java 21)
-├── frontend/       React + TypeScript + Tailwind CSS
-└── static/
-    └── card_images/720px/   Kartenbilder (78 Karten)
-```
+Du wählst ein Legemuster, trägst je Position die gezogene Karte inkl. Orientierung ein und bekommst direkt Hinweise zur Interpretation.
 
 ---
 
-## Backend
+## Inhaltsverzeichnis
 
-**Stack:** Java 21 · Spring Boot 3.5 · Jackson · springdoc-openapi
+- [Schnellstart](#schnellstart)
+- [Installations- und Startvarianten](#installations--und-startvarianten)
+- [Skripte erklärt (`scripts/`)](#skripte-erklart-scripts)
+- [Versionierung und CI](#versionierung-und-ci)
+- [Lizenz](#lizenz)
 
-### Voraussetzungen
+---
+
+## Schnellstart
+
+### Bedienung in 4 Schritten
+
+1. Legemuster auswählen (z. B. 3-Karten-Legung oder Keltisches Kreuz).
+2. Pro Position eine Karte auswählen.
+3. Bei Bedarf Orientierung umschalten (aufrecht/umgekehrt).
+4. Interpretation pro Position lesen.
+
+### Wichtige Projektteile
+
+- `backend/`: Spring Boot API, Datenmodell, JSON-Datenquellen
+- `frontend/`: React UI, Board-Logik, Tests
+- `static/card_images/720px/`: Tarot-Bilder
+
+Detaillierte technische Doku:
+
+- `backend/README.md`
+- `frontend/README.md`
+
+---
+
+## Installations- und Startvarianten
+
+### 1) Lokal als Entwicklungsumgebung (ohne Docker)
+
+Voraussetzungen:
 
 - JDK 21+
 - Maven 3.9+
+- Node.js 20+
 
-### Starten
+Backend starten:
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-API läuft unter: `http://localhost:8080`  
-Swagger UI: `http://localhost:8080/swagger-ui.html`
-
-### Tests ausführen
-
-```bash
-cd backend
-mvn test
-```
-
-### API-Übersicht
-
-| Methode | Endpoint | Beschreibung |
-|---------|----------|--------------|
-| GET | `/api/cards` | Alle Karten (optional: `?suit=`, `?search=`, `?number=`) |
-| GET | `/api/cards/suits` | Alle Kartengruppen |
-| GET | `/api/cards/{name}` | Einzelne Karte nach deutschem Namen |
-| GET | `/api/cards/{name}/interpretation?orientation=upright\|reversed` | Orientierungsabhängige Interpretation |
-| GET | `/api/spreads` | Alle Legemuster (Kurzübersicht) |
-| GET | `/api/spreads/{id}` | Legemuster-Detail inkl. Positionen |
-
-**Filterregel für `/api/cards`:** Es darf genau ein Filter gleichzeitig gesetzt sein. Bei mehreren Filtern wird `400 Bad Request` zurückgegeben.
-
-**Fehlerformat** (alle Fehlerfälle):
-```json
-{
-  "status": 404,
-  "error": "NOT_FOUND",
-  "message": "Keine Karte mit diesem Namen gefunden.",
-  "path": "/api/cards/Unbekannt"
-}
-```
-
-### Datendateien
-
-| Datei | Inhalt |
-|-------|--------|
-| `src/main/resources/data/complete.json` | 78 Tarot-Karten mit Beschreibungen |
-| `src/main/resources/data/images_assertions.json` | Zuordnung Karte → Bilddatei |
-| `src/main/resources/data/spreads.json` | Legemuster-Definitionen |
-
----
-
-## Frontend
-
-**Stack:** React 19 · TypeScript · Vite · Tailwind CSS 4
-
-### Voraussetzungen
-
-- Node.js 20+
-
-### Starten
+Frontend starten (zweites Terminal):
 
 ```bash
 cd frontend
@@ -93,67 +63,113 @@ npm install
 npm run dev
 ```
 
-App läuft unter: `http://localhost:5173`
+Aufruf:
 
-### Bauen
+- Frontend: `http://localhost:5173`
+- Backend/Swagger: `http://localhost:8080/swagger-ui.html`
 
-```bash
-cd frontend
-npm run build
-```
+### 2) Docker mit lokalem Build
 
-### Tests
-
-Unit-/Component-Tests mit Vitest:
+Ein Befehl für Backend + Frontend:
 
 ```bash
-cd frontend
-npm run test:unit
+docker compose up -d --build
 ```
 
-End-to-End-Tests mit Playwright:
+Stoppen:
 
 ```bash
-cd frontend
-npx playwright install chromium
-npm run test:e2e
+docker compose down
 ```
 
-Alle Frontend-Tests lokal hintereinander:
+Optional lokale Anpassungen (z. B. Ports):
 
 ```bash
-cd frontend
-npm run test
+cp docker-compose.override.example.yml docker-compose.override.yml
 ```
 
-CI:
-- Frontend-Tests laufen automatisch über `.github/workflows/frontend-tests.yml`
-- Trigger: Push/PR auf `dev`, wenn Dateien unter `frontend/**` geändert wurden
-- Vollständiger Release-Check für PRs von `dev` nach `main` läuft über `.github/workflows/pr-release-check.yml`
-- Dabei werden Backend und Frontend gebaut und alle Tests ausgeführt
+### 3) Docker mit fertigen GHCR-Images (Deployment)
+
+Konfiguration anlegen:
+
+```bash
+cp .env.ghcr.example .env.ghcr
+```
+
+Dann in `.env.ghcr` setzen:
+
+- `GHCR_OWNER` (GitHub User/Org, kleingeschrieben)
+- `APP_VERSION` (z. B. `1.0.2`, `1.0`, `latest`)
+
+Starten:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml up -d
+```
+
+Update:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml pull
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml up -d
+```
+
+Stoppen:
+
+```bash
+docker compose --env-file .env.ghcr -f docker-compose.ghcr.yml down
+```
+
+Optional GHCR-Override (eigene Ports):
+
+```bash
+cp docker-compose.ghcr.override.example.yml docker-compose.ghcr.override.yml
+```
 
 ---
 
-## Legemuster hinzufügen
+## Skripte erklärt (`scripts/`)
 
-Neue Legemuster können ohne Code-Änderung direkt in `backend/src/main/resources/data/spreads.json` ergänzt werden:
+- `scripts/deploy.sh <version>`
+  - setzt `APP_VERSION` in `.env.ghcr`
+  - zieht Images aus GHCR und startet/aktualisiert Container
+  - wartet auf Healthchecks
+- `scripts/rollback.sh <version>`
+  - führt einen gezielten Rollback auf eine ältere Version aus
+- `scripts/status.sh`
+  - zeigt Zielversion aus `.env.ghcr`, Container-Health und Compose-Status
 
-```json
-{
-  "id": "mein-muster",
-  "name": "Mein Muster",
-  "description": "Beschreibung des Musters.",
-  "tags": ["kategorie"],
-  "positions": [
-    { "index": 1, "key": "pos1", "label": "Titel", "prompt": "Frage?", "layoutX": 0, "layoutY": 0 }
-  ]
-}
+Beispiele:
+
+```bash
+bash scripts/deploy.sh 1.0.2
+bash scripts/rollback.sh 1.0.1
+bash scripts/status.sh
+```
+
+Trockenlauf (ohne echte Docker-Aktion):
+
+```bash
+bash scripts/deploy.sh 1.0.2 --dry-run
 ```
 
 ---
 
-## CORS
+## Versionierung und CI
 
-Das Backend erlaubt standardmäßig Anfragen von `http://localhost:5173` und `http://localhost:3000`.  
-Konfiguration in `backend/src/main/java/com/tarotapp/config/WebConfig.java`.
+- Zentrale Versionsquelle: `version.json`
+- Push auf `dev`: Patch-Bump (x.y.z -> x.y.z+1)
+- Push auf `main`: Minor-Bump (x.y.z -> x.(y+1).0)
+- Major-Version wird manuell in `version.json` erhöht
+- GHCR-Publishing läuft nur bei Push auf `main`
+
+---
+
+## Lizenz
+
+- Eigener Quellcode steht unter **Apache License 2.0** (`LICENSE`)
+- Tarot-Bilder unter `static/card_images/` stammen aus `https://github.com/mixvlad/TarotCards` und stehen laut Upstream unter **CC BY-NC**
+- Bilddateien sind nicht Teil der Apache-2.0-Lizenz
+
+Mehr Details: `THIRD_PARTY_LICENSES.md` und `NOTICE`.
 

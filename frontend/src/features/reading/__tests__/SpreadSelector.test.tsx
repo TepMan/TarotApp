@@ -65,5 +65,59 @@ describe('SpreadSelector', () => {
       expect(screen.getByLabelText(/Legemuster auswählen/i)).toBeInTheDocument()
     })
   })
+
+  it('sortiert Legemuster im Dropdown nach Lernstufe und Priorität', async () => {
+    const onSelectSpread = vi.fn()
+    mockGetSpreads.mockResolvedValue([
+      {
+        id: 'celtic-cross',
+        name: 'Keltisches Kreuz',
+        description: 'Komplex',
+        positionCount: 10,
+        tags: ['klassisch'],
+      },
+      {
+        id: 'compass',
+        name: 'Kompass',
+        description: 'Aufbau',
+        positionCount: 5,
+        tags: ['standard'],
+      },
+      {
+        id: 'three-card',
+        name: '3-Karten Legung',
+        description: 'Basis',
+        positionCount: 3,
+        tags: ['einsteiger'],
+      },
+      {
+        id: 'decision-game',
+        name: 'Entscheidungsspiel',
+        description: 'Vertiefung',
+        positionCount: 8,
+        tags: ['analyse'],
+      },
+      {
+        id: 'cross-5',
+        name: '5er Kreuz',
+        description: 'Aufbau',
+        positionCount: 5,
+        tags: ['standard'],
+      },
+    ])
+
+    render(<SpreadSelector onSelectSpread={onSelectSpread} />)
+
+    const select = await screen.findByLabelText(/Legemuster auswählen/i)
+    const optionTexts = Array.from(select.querySelectorAll('option')).map((option) => option.textContent)
+
+    expect(optionTexts).toEqual([
+      '3-Karten Legung (3 Positionen)',
+      '5er Kreuz (5 Positionen)',
+      'Kompass (5 Positionen)',
+      'Entscheidungsspiel (8 Positionen)',
+      'Keltisches Kreuz (10 Positionen)',
+    ])
+  })
 })
 

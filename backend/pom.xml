@@ -14,9 +14,17 @@
 
     <groupId>com.tarotapp</groupId>
     <artifactId>tarot-backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>TarotApp Backend</name>
     <description>Spring Boot Backend für die Tarot-Karten-App</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <java.version>21</java.version>
