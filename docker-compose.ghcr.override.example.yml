@@ -1,0 +1,11 @@
+services:
+  backend:
+    # Beispiel: alternativer Host-Port fuer API/Swagger
+    ports:
+      - "18080:8080"
+
+  frontend:
+    # Beispiel: alternativer Host-Port fuer UI
+    ports:
+      - "15173:80"
+
