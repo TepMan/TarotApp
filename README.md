@@ -134,6 +134,44 @@ CI:
 
 ---
 
+## Docker (Phase 1)
+
+Für eine OS-unabhängige, einfache Ausführung kannst du Backend und Frontend zusammen per Docker Compose starten.
+
+### Voraussetzungen
+
+- Docker Engine mit Docker Compose Plugin (`docker compose`)
+
+### Starten (Build + Run)
+
+```bash
+docker compose up --build
+```
+
+App danach unter:
+
+- Frontend: `http://localhost:5173`
+- Backend API direkt: `http://localhost:8080`
+
+### Im Hintergrund starten
+
+```bash
+docker compose up -d --build
+```
+
+### Stoppen
+
+```bash
+docker compose down
+```
+
+### Hinweise
+
+- Das Frontend läuft in Nginx und leitet `/api/**` sowie `/images/**` intern an den Backend-Service weiter.
+- Die Tarot-Bilder werden im Backend-Container unter `/app/static/card_images/720px` bereitgestellt.
+
+---
+
 ## Legemuster hinzufügen
 
 Neue Legemuster können ohne Code-Änderung direkt in `backend/src/main/resources/data/spreads.json` ergänzt werden:
