@@ -25,47 +25,21 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   const interpretationRequestCounter = useRef(0)
   const latestInterpretationRequestByPosition = useRef<Record<string, number>>({})
 
-  function getStorageKey(id: string): string {
-    return `tarot.reading.v1.${id}`
-  }
-
-  function readPersistedState(id: string): {
-    selections?: Record<string, { cardName: string; orientation: Orientation }>
-    expanded?: Record<string, boolean>
-  } {
-    try {
-      const raw = localStorage.getItem(getStorageKey(id))
-      if (!raw) {
-        return {}
-      }
-      const parsed = JSON.parse(raw) as {
-        selections?: Record<string, { cardName: string; orientation: Orientation }>
-        expanded?: Record<string, boolean>
-      }
-      return parsed ?? {}
-    } catch {
-      return {}
-    }
-  }
-
   async function loadSpreadDetail(id: string) {
     setIsLoading(true)
     setError(null)
 
     try {
       const [detail, allCards] = await Promise.all([getSpreadById(id), getCards()])
-      const persisted = readPersistedState(id)
 
       setSpread(detail)
       setCards(allCards)
-      setSelectionByPosition((current) => {
+      setSelectionByPosition(() => {
         const next: Record<string, { cardName: string; orientation: Orientation }> = {}
         for (const position of detail.positions) {
-          const persistedSelection = persisted.selections?.[position.key]
           next[position.key] = {
-            cardName: persistedSelection?.cardName ?? current[position.key]?.cardName ?? '',
-            orientation:
-              persistedSelection?.orientation ?? current[position.key]?.orientation ?? 'upright',
+            cardName: '',
+            orientation: 'upright',
           }
         }
         return next
@@ -82,28 +56,24 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
       setExpandedByPosition(() => {
         const next: Record<string, boolean> = {}
         for (const position of detail.positions) {
-          next[position.key] = persisted.expanded?.[position.key] ?? true
+          next[position.key] = true
         }
         return next
       })
 
-      setInterpretationByPosition((current) => {
+      setInterpretationByPosition(() => {
         const next: Record<
           string,
           { status: 'idle' | 'loading' | 'success' | 'error'; data?: InterpretationResponse; error?: string }
         > = {}
         for (const position of detail.positions) {
-          next[position.key] = current[position.key] ?? { status: 'idle' }
+          next[position.key] = { status: 'idle' }
         }
         return next
       })
 
-      for (const position of detail.positions) {
-        const restored = persisted.selections?.[position.key]
-        if (restored?.cardName) {
-          void loadInterpretationForPosition(position.key, restored.cardName, restored.orientation)
-        }
-      }
+      setSelectionErrorByPosition({})
+      setHighlightedPositionKey(null)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Legemuster-Detail konnte nicht geladen werden.')
       setSpread(null)
@@ -351,45 +321,45 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
     void loadSpreadDetail(spreadId)
   }, [spreadId])
 
-  useEffect(() => {
-    if (!spreadId || !spread) {
-      return
+
+  const renderedLayoutByPosition = useMemo(() => {
+    if (!spread || spread.positions.length === 0) {
+      return new Map<string, { x: number; y: number }>()
     }
 
-    const positionKeys = new Set(spread.positions.map((position) => position.key))
-    const persistedSelections: Record<string, { cardName: string; orientation: Orientation }> = {}
-    const persistedExpanded: Record<string, boolean> = {}
+    // Verdichtet X-Luecken nur fuer die Darstellung (Datenmodell bleibt unveraendert).
+    const uniqueX = [...new Set(spread.positions.map((position) => position.layoutX))].sort((a, b) => a - b)
+    const compactXByOriginal = new Map<number, number>()
+    uniqueX.forEach((x, index) => {
+      compactXByOriginal.set(x, index)
+    })
 
-    for (const [positionKey, selection] of Object.entries(selectionByPosition)) {
-      if (positionKeys.has(positionKey) && selection.cardName) {
-        persistedSelections[positionKey] = selection
-      }
+    const renderedLayout = new Map<string, { x: number; y: number }>()
+    for (const position of spread.positions) {
+      renderedLayout.set(position.key, {
+        x: compactXByOriginal.get(position.layoutX) ?? position.layoutX,
+        y: position.layoutY,
+      })
     }
 
-    for (const [positionKey, expanded] of Object.entries(expandedByPosition)) {
-      if (positionKeys.has(positionKey)) {
-        persistedExpanded[positionKey] = expanded
-      }
-    }
-
-    localStorage.setItem(
-      getStorageKey(spreadId),
-      JSON.stringify({
-        selections: persistedSelections,
-        expanded: persistedExpanded,
-      }),
-    )
-  }, [expandedByPosition, selectionByPosition, spread, spreadId])
+    return renderedLayout
+  }, [spread])
 
   const boardDimensions = useMemo(() => {
     if (!spread || spread.positions.length === 0) {
       return { columns: 1, rows: 1 }
     }
 
-    const maxX = Math.max(...spread.positions.map((p) => p.layoutX))
-    const maxY = Math.max(...spread.positions.map((p) => p.layoutY))
+    const rendered = spread.positions.map((position) => renderedLayoutByPosition.get(position.key))
+    const maxX = Math.max(...rendered.map((item) => item?.x ?? 0))
+    const maxY = Math.max(...rendered.map((item) => item?.y ?? 0))
     return { columns: maxX + 1, rows: maxY + 1 }
-  }, [spread])
+  }, [renderedLayoutByPosition, spread])
+
+  const isDenseLayout = spread ? spread.positions.length >= 8 || boardDimensions.columns >= 5 : false
+  const isVeryDenseLayout = spread ? spread.positions.length >= 10 || boardDimensions.columns >= 6 : false
+  const minColumnWidth = isVeryDenseLayout ? 180 : isDenseLayout ? 200 : 240
+  const minRowHeight = isVeryDenseLayout ? 240 : isDenseLayout ? 270 : 300
 
   if (!spreadId) {
     return <p>Wähle zuerst ein Legemuster aus.</p>
@@ -423,13 +393,13 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
   }
 
   return (
-    <div className="spread-board-wrap">
+    <div className={`spread-board-wrap ${isDenseLayout ? 'is-dense' : ''}`}>
 
       <div
-        className="spread-board-grid"
+        className={`spread-board-grid ${isDenseLayout ? 'is-dense' : ''}`}
         style={{
-          gridTemplateColumns: `repeat(${boardDimensions.columns}, minmax(120px, 1fr))`,
-          gridTemplateRows: `repeat(${boardDimensions.rows}, minmax(90px, auto))`,
+          gridTemplateColumns: `repeat(${boardDimensions.columns}, minmax(${minColumnWidth}px, 1fr))`,
+          gridTemplateRows: `repeat(${boardDimensions.rows}, minmax(${minRowHeight}px, auto))`,
         }}
       >
         {spread.positions.map((position) => {
@@ -466,12 +436,12 @@ export function SpreadBoard({ spreadId, spreadName }: SpreadBoardProps) {
             <div
               key={position.key}
               id={`spread-position-${position.key}`}
-              className={`spread-position-tile ${
+              className={`spread-position-tile ${isDenseLayout ? 'is-compact' : ''} ${
                 highlightedPositionKey === position.key ? 'is-highlighted' : ''
               }`}
               style={{
-                gridColumn: position.layoutX + 1,
-                gridRow: position.layoutY + 1,
+                gridColumn: (renderedLayoutByPosition.get(position.key)?.x ?? position.layoutX) + 1,
+                gridRow: (renderedLayoutByPosition.get(position.key)?.y ?? position.layoutY) + 1,
               }}
             >
               <div className="spread-position-header">

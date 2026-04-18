@@ -117,6 +117,81 @@ describe('SpreadBoard', () => {
       expect(within(firstTile as HTMLElement).getByText(/Gewählt: Der Magier/i)).toBeInTheDocument()
     })
   })
+
+  it('setzt Kartenauswahl beim Wechsel der Legung zurück', async () => {
+    mockGetSpreadById.mockImplementation(async (id: string) => {
+      if (id === 'celtic-cross') {
+        return {
+          id: 'celtic-cross',
+          name: 'Keltisches Kreuz',
+          description: 'Klassische Legung',
+          tags: ['klassisch'],
+          positions: [
+            {
+              index: 4,
+              key: 'past',
+              label: 'Vergangenheit',
+              prompt: 'Was liegt hinter dir?',
+              layoutX: 0,
+              layoutY: 1,
+            },
+          ],
+        }
+      }
+
+      return {
+        id: 'three-card',
+        name: '3-Karten Legung',
+        description: 'Klassische Legung',
+        tags: ['einsteiger'],
+        positions: [
+          {
+            index: 1,
+            key: 'past',
+            label: 'Vergangenheit',
+            prompt: 'Welche Prägung wirkt noch nach?',
+            layoutX: 0,
+            layoutY: 0,
+          },
+        ],
+      }
+    })
+
+    const { rerender } = render(<SpreadBoard spreadId="celtic-cross" spreadName="Keltisches Kreuz" />)
+
+    const celticInput = await screen.findByRole('combobox', { name: /Karte/i })
+    fireEvent.change(celticInput, { target: { value: 'Der Narr' } })
+
+    await waitFor(() => {
+      expect(screen.getByText(/Gewählt: Der Narr/i)).toBeInTheDocument()
+    })
+
+    rerender(<SpreadBoard spreadId="three-card" spreadName="3-Karten Legung" />)
+
+    const threeCardInput = await screen.findByRole('combobox', { name: /Karte/i })
+    expect((threeCardInput as HTMLInputElement).value).toBe('')
+    expect(screen.queryByText(/Gewählt:/i)).not.toBeInTheDocument()
+  })
+
+  it('übernimmt keine Vorbelegung aus localStorage nach Reload', async () => {
+    localStorage.setItem(
+      'tarot.reading.v1.three-card',
+      JSON.stringify({
+        selections: {
+          past: { cardName: 'Der Narr', orientation: 'upright' },
+        },
+        expanded: {
+          past: true,
+        },
+      }),
+    )
+
+    render(<SpreadBoard spreadId="three-card" spreadName="3-Karten Legung" />)
+
+    const firstInput = await screen.findAllByRole('combobox', { name: /Karte/i })
+    expect((firstInput[0] as HTMLInputElement).value).toBe('')
+    expect(screen.queryByText(/Gewählt: Der Narr/i)).not.toBeInTheDocument()
+  })
 })
 
 
