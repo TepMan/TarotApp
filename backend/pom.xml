@@ -14,7 +14,7 @@
 
     <groupId>com.tarotapp</groupId>
     <artifactId>tarot-backend</artifactId>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
     <name>TarotApp Backend</name>
     <description>Spring Boot Backend für die Tarot-Karten-App</description>
 
