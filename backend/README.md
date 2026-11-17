@@ -21,7 +21,7 @@ Spring Boot Backend fuer die TarotApp. Das Backend stellt eine read-only REST-AP
 ## Techstack
 
 - Java 21
-- Spring Boot 3.5
+- Spring Boot 4.1
 - Spring Web (REST)
 - Jackson (JSON)
 - springdoc-openapi (Swagger UI)
@@ -168,4 +168,3 @@ Workflow fuer Backend-Tests:
 Zusatzcheck bei PR von `dev` nach `main`:
 
 - `.github/workflows/pr-release-check.yml`
-
