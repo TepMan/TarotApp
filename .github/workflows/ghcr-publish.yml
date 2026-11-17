@@ -46,7 +46,7 @@ jobs:
           echo "owner=${OWNER}" >> "${GITHUB_OUTPUT}"
 
       - name: Build and push backend image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: backend/Dockerfile
@@ -57,7 +57,7 @@ jobs:
             ghcr.io/${{ steps.vars.outputs.owner }}/tarotapp-backend:latest
 
       - name: Build and push frontend image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./frontend
           file: frontend/Dockerfile
